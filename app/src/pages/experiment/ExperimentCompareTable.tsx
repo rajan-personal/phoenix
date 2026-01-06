@@ -426,9 +426,6 @@ export function ExperimentCompareTable(props: ExampleCompareTableProps) {
           return (
             <ExperimentRunOutputCell
               rowIndex={row.index}
-              experimentRepetitionCount={
-                experimentInfoById[experimentId]?.repetitions ?? 0
-              }
               repeatedRunGroup={repeatedRunGroup}
               displayFullText={displayFullText}
               setDialog={setDialog}
@@ -881,7 +878,6 @@ function RunError({ error }: { error: string }) {
 }
 
 function ExperimentRunOutputCell({
-  experimentRepetitionCount,
   repeatedRunGroup,
   displayFullText,
   setDialog,
@@ -889,7 +885,6 @@ function ExperimentRunOutputCell({
   setSelectedExampleIndex,
   annotationSummaries,
 }: {
-  experimentRepetitionCount: number;
   repeatedRunGroup: ExperimentRepeatedRunGroup;
   displayFullText: boolean;
   setDialog: (dialog: ReactNode) => void;
@@ -926,10 +921,10 @@ function ExperimentRunOutputCell({
   const hasTrace = traceId != null && projectId != null;
   const runControls = (
     <>
-      {experimentRepetitionCount > 1 ? (
+      {repeatedRunGroup.runs.length > 1 ? (
         <ExperimentRepetitionSelector
           repetitionNumber={selectedRepetitionNumber}
-          totalRepetitions={experimentRepetitionCount}
+          totalRepetitions={repeatedRunGroup.runs.length}
           setRepetitionNumber={setSelectedRepetitionNumber}
         />
       ) : null}
@@ -983,7 +978,7 @@ function ExperimentRunOutputCell({
       {run ? (
         <ExperimentRunOutput
           {...run}
-          numRepetitions={experimentRepetitionCount}
+          numRepetitions={repeatedRunGroup.runs.length}
           displayFullText={displayFullText}
           setDialog={setDialog}
           annotationSummaries={annotationSummaries}
