@@ -206,6 +206,13 @@ def upgrade() -> None:
         sa.Column("display_name", sa.String, nullable=False),
         sa.Column("input_mapping", JSON_, nullable=False),
         sa.Column(
+            "project_id",
+            _Integer,
+            sa.ForeignKey("projects.id", ondelete="RESTRICT"),
+            nullable=False,
+            index=True,
+        ),
+        sa.Column(
             "created_at",
             sa.TIMESTAMP(timezone=True),
             nullable=False,

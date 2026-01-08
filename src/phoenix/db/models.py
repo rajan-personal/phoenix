@@ -2246,6 +2246,11 @@ class DatasetEvaluators(HasId):
     )
     display_name: Mapped[Identifier] = mapped_column(_Identifier, nullable=False)
     input_mapping: Mapped[dict[str, Any]] = mapped_column(JSON_, nullable=False)
+    project_id: Mapped[int] = mapped_column(
+        ForeignKey("projects.id", ondelete="RESTRICT"),
+        nullable=False,
+        index=True,
+    )
     created_at: Mapped[datetime] = mapped_column(UtcTimeStamp, server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(
         UtcTimeStamp, server_default=func.now(), onupdate=func.now()
@@ -2254,6 +2259,7 @@ class DatasetEvaluators(HasId):
     evaluator: Mapped[Optional["Evaluator"]] = relationship(
         "Evaluator", back_populates="dataset_evaluators"
     )
+    project: Mapped["Project"] = relationship("Project")
 
     __table_args__ = (
         CheckConstraint(
