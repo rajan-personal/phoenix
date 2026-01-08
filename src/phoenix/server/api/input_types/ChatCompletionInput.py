@@ -49,3 +49,4 @@ class ChatCompletionOverDatasetInput:
         default=None,
         description="Dot-notation path to messages in dataset example input to append to prompt",
     )
+    tracing_enabled: bool = True

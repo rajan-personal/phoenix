@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<64389c804d2b28a4cb30839e32555b0c>>
+ * @generated SignedSource<<d201bb9c97ee437cb98f46bc7153c7c1>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -30,6 +30,7 @@ export type ChatCompletionOverDatasetInput = {
   splitIds?: ReadonlyArray<string> | null;
   templateFormat?: PromptTemplateFormat;
   tools?: ReadonlyArray<any> | null;
+  tracingEnabled?: boolean;
 };
 export type ChatCompletionMessageInput = {
   content?: any;
