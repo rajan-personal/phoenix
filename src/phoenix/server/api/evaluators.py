@@ -3,12 +3,25 @@ import logging
 import re
 import zlib
 from abc import ABC, abstractmethod
+from contextlib import nullcontext
 from copy import deepcopy
 from datetime import datetime, timezone
-from typing import Any, Callable, Optional, TypeAlias, TypeVar
+from typing import Any, Callable, Optional, Tuple, TypeAlias, TypeVar
 
+import opentelemetry.sdk.trace as trace_sdk
 from jsonpath_ng import parse as parse_jsonpath
 from jsonschema import ValidationError, validate
+from openinference.instrumentation import (
+    get_input_attributes,
+    get_output_attributes,
+    get_span_kind_attributes,
+)
+from openinference.semconv.resource import ResourceAttributes
+from opentelemetry.context import Context
+from opentelemetry.sdk.resources import Resource
+from opentelemetry.sdk.trace.export import SimpleSpanProcessor
+from opentelemetry.sdk.trace.export.in_memory_span_exporter import InMemorySpanExporter
+from opentelemetry.trace import Status, StatusCode, Tracer
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from strawberry.relay import GlobalID
@@ -106,6 +119,10 @@ class LLMEvaluator:
         self._model_provider = model_provider
         self._id = id
         self._llm_client = llm_client
+        self._tracer: Optional[Tracer] = None
+
+    def set_tracer(self, tracer: Tracer) -> None:
+        self._tracer = tracer
 
     @property
     def name(self) -> str:
@@ -208,104 +225,137 @@ class LLMEvaluator:
         input_mapping: EvaluatorInputMappingInput,
     ) -> EvaluationResult:
         start_time = datetime.now(timezone.utc)
-        try:
-            template_variables = apply_input_mapping(
-                input_schema=self.input_schema,
-                input_mapping=input_mapping,
-                context=context,
+        evaluator_span_context = (
+            self._tracer.start_as_current_span(
+                f"Evaluation: {self._name}",
+                context=Context(),  # inject blank context to ensure the evaluator span is the root
             )
-            template_variables = cast_template_variable_types(
-                template_variables=template_variables,
-                input_schema=self.input_schema,
+            if self._tracer
+            else nullcontext()
+        )
+        with evaluator_span_context as evaluator_span:
+            trace_id: str | None = (
+                _hex(evaluator_span.get_span_context().trace_id) if evaluator_span else None
             )
-            validate_template_variables(
-                template_variables=template_variables,
-                input_schema=self.input_schema,
-            )
-            template_formatter = get_template_formatter(self._template_format)
-            messages: list[
-                tuple[ChatCompletionMessageRole, str, Optional[str], Optional[list[str]]]
-            ] = []
-            for msg in self._template.messages:
-                role = ChatCompletionMessageRole(RoleConversion.to_gql(msg.role))
-                if isinstance(msg.content, str):
-                    formatted_content = template_formatter.format(msg.content, **template_variables)
-                else:
-                    text_parts = []
-                    for part in msg.content:
-                        if isinstance(part, TextContentPart):
-                            formatted_text = template_formatter.format(
-                                part.text, **template_variables
-                            )
-                            text_parts.append(formatted_text)
-                    formatted_content = "".join(text_parts)
-                messages.append((role, formatted_content, None, None))
+            if evaluator_span:
+                evaluator_span.set_attributes(get_span_kind_attributes("evaluator"))
+                evaluator_span.set_attributes(get_input_attributes(context))
 
-            denormalized_tools, denormalized_tool_choice = denormalize_tools(
-                self._tools, self._model_provider
-            )
-            invocation_parameters = get_raw_invocation_parameters(self._invocation_parameters)
-            invocation_parameters.update(denormalized_tool_choice)
-            tool_call_by_id: dict[ToolCallId, ToolCall] = {}
-
-            async for chunk in self._llm_client.chat_completion_create(
-                messages=messages,
-                tools=denormalized_tools,
-                **invocation_parameters,
-            ):
-                if isinstance(chunk, ToolCallChunk):
-                    if chunk.id not in tool_call_by_id:
-                        tool_call_by_id[chunk.id] = ToolCall(
-                            name=chunk.function.name,
-                            arguments=chunk.function.arguments,
+            try:
+                template_variables = apply_input_mapping(
+                    input_schema=self.input_schema,
+                    input_mapping=input_mapping,
+                    context=context,
+                )
+                template_variables = cast_template_variable_types(
+                    template_variables=template_variables,
+                    input_schema=self.input_schema,
+                )
+                validate_template_variables(
+                    template_variables=template_variables,
+                    input_schema=self.input_schema,
+                )
+                template_formatter = get_template_formatter(self._template_format)
+                messages: list[
+                    tuple[ChatCompletionMessageRole, str, Optional[str], Optional[list[str]]]
+                ] = []
+                for msg in self._template.messages:
+                    role = ChatCompletionMessageRole(RoleConversion.to_gql(msg.role))
+                    if isinstance(msg.content, str):
+                        formatted_content = template_formatter.format(
+                            msg.content, **template_variables
                         )
                     else:
-                        tool_call_by_id[chunk.id]["arguments"] += chunk.function.arguments
+                        text_parts = []
+                        for part in msg.content:
+                            if isinstance(part, TextContentPart):
+                                formatted_text = template_formatter.format(
+                                    part.text, **template_variables
+                                )
+                                text_parts.append(formatted_text)
+                        formatted_content = "".join(text_parts)
+                    messages.append((role, formatted_content, None, None))
 
-            if not tool_call_by_id:
-                raise ValueError("No tool calls received from LLM")
+                denormalized_tools, denormalized_tool_choice = denormalize_tools(
+                    self._tools, self._model_provider
+                )
+                invocation_parameters = get_raw_invocation_parameters(self._invocation_parameters)
+                invocation_parameters.update(denormalized_tool_choice)
+                tool_call_by_id: dict[ToolCallId, ToolCall] = {}
 
-            tool_call = next(iter(tool_call_by_id.values()))
-            args = json.loads(tool_call["arguments"])
-            label = args.get("label")
-            if label is None:
-                raise ValueError("LLM response missing required 'label' field")
+                async for chunk in self._llm_client.chat_completion_create(
+                    messages=messages,
+                    tools=denormalized_tools,
+                    **invocation_parameters,
+                ):
+                    if isinstance(chunk, ToolCallChunk):
+                        if chunk.id not in tool_call_by_id:
+                            tool_call_by_id[chunk.id] = ToolCall(
+                                name=chunk.function.name,
+                                arguments=chunk.function.arguments,
+                            )
+                        else:
+                            tool_call_by_id[chunk.id]["arguments"] += chunk.function.arguments
 
-            scores_by_label = {
-                config_value.label: config_value.score
-                for config_value in self._output_config.values
-            }
-            score = scores_by_label.get(label)
-            explanation = args.get("explanation")
+                if not tool_call_by_id:
+                    raise ValueError("No tool calls received from LLM")
 
-            end_time = datetime.now(timezone.utc)
-            return EvaluationResult(
-                name=self._annotation_name,
-                annotator_kind="LLM",
-                label=label,
-                score=score,
-                explanation=explanation,
-                metadata={},
-                error=None,
-                trace_id=None,
-                start_time=start_time,
-                end_time=end_time,
-            )
-        except Exception as e:
-            logger.exception(f"LLM evaluator '{self._name}' failed")
-            end_time = datetime.now(timezone.utc)
-            return EvaluationResult(
-                name=self._annotation_name,
-                annotator_kind="LLM",
-                label=None,
-                score=None,
-                explanation=None,
-                metadata={},
-                error=str(e),
-                trace_id=None,
-                start_time=start_time,
-                end_time=end_time,
-            )
+                tool_call = next(iter(tool_call_by_id.values()))
+                args = json.loads(tool_call["arguments"])
+                label = args.get("label")
+                if label is None:
+                    raise ValueError("LLM response missing required 'label' field")
+
+                scores_by_label = {
+                    config_value.label: config_value.score
+                    for config_value in self._output_config.values
+                }
+                score = scores_by_label.get(label)
+                explanation = args.get("explanation")
+
+                end_time = datetime.now(timezone.utc)
+
+                if evaluator_span is not None:
+                    output = {
+                        "label": label,
+                        "score": score,
+                        "explanation": explanation,
+                    }
+                    evaluator_span.set_attributes(get_output_attributes(output))
+                    evaluator_span.set_status(Status(StatusCode.OK))
+
+                return EvaluationResult(
+                    name=self._annotation_name,
+                    annotator_kind="LLM",
+                    label=label,
+                    score=score,
+                    explanation=explanation,
+                    metadata={},
+                    error=None,
+                    trace_id=trace_id,
+                    start_time=start_time,
+                    end_time=end_time,
+                )
+            except Exception as e:
+                logger.exception(f"LLM evaluator '{self._name}' failed")
+                end_time = datetime.now(timezone.utc)
+
+                if evaluator_span is not None:
+                    evaluator_span.record_exception(e)
+                    evaluator_span.set_status(Status(StatusCode.ERROR, str(e)))
+
+                return EvaluationResult(
+                    name=self._annotation_name,
+                    annotator_kind="LLM",
+                    label=None,
+                    score=None,
+                    explanation=None,
+                    metadata={},
+                    error=str(e),
+                    trace_id=trace_id,
+                    start_time=start_time,
+                    end_time=end_time,
+                )
 
 
 class BuiltInEvaluator(ABC):
@@ -1085,3 +1135,16 @@ class JSONDistanceEvaluator(BuiltInEvaluator):
                 start_time=start_time,
                 end_time=end_time,
             )
+
+
+def get_evaluator_tracer_and_exporter(project_name: str) -> Tuple[Tracer, InMemorySpanExporter]:
+    resource = Resource({ResourceAttributes.PROJECT_NAME: project_name})
+    tracer_provider = trace_sdk.TracerProvider(resource=resource)
+    exporter = InMemorySpanExporter()
+    span_processor = SimpleSpanProcessor(exporter)
+    tracer_provider.add_span_processor(span_processor)
+    return tracer_provider.get_tracer(__name__), exporter
+
+
+def _hex(number: int) -> str:
+    return hex(number)[2:]
