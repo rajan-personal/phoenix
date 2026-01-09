@@ -44,6 +44,20 @@ from phoenix.server.api.types.PromptVersion import PromptVersion
 from phoenix.server.bearer_auth import PhoenixUser
 
 
+async def _create_dataset_evaluator_project(
+    session: AsyncSession,
+    dataset_name: str,
+    dataset_evaluator_name: str,
+) -> int:
+    project = models.Project(
+        name=f"{dataset_name}/{dataset_evaluator_name}",
+        description=f"Traces for dataset evaluator: {dataset_evaluator_name}",
+    )
+    session.add(project)
+    await session.flush()
+    return project.id
+
+
 async def _ensure_evaluator_prompt_label(
     session: AsyncSession,
     prompt_id: int,
