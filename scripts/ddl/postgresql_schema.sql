@@ -703,6 +703,7 @@ CREATE TABLE public.dataset_evaluators (
     builtin_evaluator_id BIGINT,
     display_name VARCHAR NOT NULL,
     input_mapping JSONB NOT NULL,
+    project_id BIGINT NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),
     updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),
     CONSTRAINT pk_dataset_evaluators PRIMARY KEY (id),
@@ -718,7 +719,11 @@ CREATE TABLE public.dataset_evaluators (
     CONSTRAINT fk_dataset_evaluators_evaluator_id_evaluators FOREIGN KEY
         (evaluator_id)
         REFERENCES public.evaluators (id)
-        ON DELETE CASCADE
+        ON DELETE CASCADE,
+    CONSTRAINT fk_dataset_evaluators_project_id_projects FOREIGN KEY
+        (project_id)
+        REFERENCES public.projects (id)
+        ON DELETE RESTRICT
 );
 
 CREATE INDEX ix_dataset_evaluators_builtin_evaluator_id ON public.dataset_evaluators
@@ -729,6 +734,8 @@ CREATE UNIQUE INDEX ix_dataset_evaluators_dataset_evaluator_notnull ON public.da
     USING btree (dataset_id, evaluator_id, display_name) WHERE (evaluator_id IS NOT NULL);
 CREATE INDEX ix_dataset_evaluators_evaluator_id ON public.dataset_evaluators
     USING btree (evaluator_id);
+CREATE INDEX ix_dataset_evaluators_project_id ON public.dataset_evaluators
+    USING btree (project_id);
 
 
 -- Table: experiments
