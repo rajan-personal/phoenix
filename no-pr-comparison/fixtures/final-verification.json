@@ -1,0 +1,110 @@
+{
+  "before": {
+    "unchanged_fixture_tables": {
+      "projects": {
+        "count": 4,
+        "sha256": "109ce22178b6646ef4a0b82b2880c649c2dcfdad8c00011e41e8fa92ee88452f"
+      },
+      "traces": {
+        "count": 1,
+        "sha256": "d9cffba642437eda9a09edfa1bcb0767359781597e3c90b8dc65f24938d2c0cc"
+      },
+      "spans": {
+        "count": 1,
+        "sha256": "b39a0094ddb2c798a9860b2e079a3942e1e86e90468d13579acf4dc16e70be39"
+      },
+      "span_annotations": {
+        "count": 5,
+        "sha256": "cac19534e758f891f34a61077f0bc6fbc95578a3a0905cc2241bf73c7bda48ee"
+      },
+      "document_annotations": {
+        "count": 6,
+        "sha256": "94452b2638e3be567dc152b4624ce5b05debdf557970e6d9aad660c547a1bf41"
+      },
+      "datasets": {
+        "count": 1,
+        "sha256": "3d2d7f78244edf09d205dbadd1d68d8f6e520a806341ceab3453189abd24a0da"
+      },
+      "dataset_versions": {
+        "count": 1,
+        "sha256": "d20b2049a24d1c679063e3b8a07a37d3760c2ecdcc407c26833c6033c3e5bf05"
+      },
+      "dataset_examples": {
+        "count": 5,
+        "sha256": "ffe6e82f29ab1afdd4d4c700c41b4af007f3d5878e6ef53053fa7e83b0dd0233"
+      },
+      "dataset_example_revisions": {
+        "count": 5,
+        "sha256": "01af7d92b2cbff2bc7e1f935cb22a39796705da1c503d7c55619c42a18bab205"
+      },
+      "experiments": {
+        "count": 2,
+        "sha256": "c508598120370818703bae64e92a5886fa63ba4f72acac8568d65e366f542ec5"
+      },
+      "experiment_runs": {
+        "count": 6,
+        "sha256": "8e8fcfcf6e8558e4e388e732b98980463c976de80016628a097fdb67316a1207"
+      },
+      "experiment_run_annotations": {
+        "count": 5,
+        "sha256": "3e7244aa456a239eec607652efc066299e72d83860b64b10e8df1cf4a312f9ea"
+      }
+    },
+    "clean_source": true,
+    "head": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f"
+  },
+  "after": {
+    "unchanged_fixture_tables": {
+      "projects": {
+        "count": 4,
+        "sha256": "109ce22178b6646ef4a0b82b2880c649c2dcfdad8c00011e41e8fa92ee88452f"
+      },
+      "traces": {
+        "count": 1,
+        "sha256": "d9cffba642437eda9a09edfa1bcb0767359781597e3c90b8dc65f24938d2c0cc"
+      },
+      "spans": {
+        "count": 1,
+        "sha256": "b39a0094ddb2c798a9860b2e079a3942e1e86e90468d13579acf4dc16e70be39"
+      },
+      "span_annotations": {
+        "count": 5,
+        "sha256": "cac19534e758f891f34a61077f0bc6fbc95578a3a0905cc2241bf73c7bda48ee"
+      },
+      "document_annotations": {
+        "count": 6,
+        "sha256": "94452b2638e3be567dc152b4624ce5b05debdf557970e6d9aad660c547a1bf41"
+      },
+      "datasets": {
+        "count": 1,
+        "sha256": "3d2d7f78244edf09d205dbadd1d68d8f6e520a806341ceab3453189abd24a0da"
+      },
+      "dataset_versions": {
+        "count": 1,
+        "sha256": "d20b2049a24d1c679063e3b8a07a37d3760c2ecdcc407c26833c6033c3e5bf05"
+      },
+      "dataset_examples": {
+        "count": 5,
+        "sha256": "ffe6e82f29ab1afdd4d4c700c41b4af007f3d5878e6ef53053fa7e83b0dd0233"
+      },
+      "dataset_example_revisions": {
+        "count": 5,
+        "sha256": "01af7d92b2cbff2bc7e1f935cb22a39796705da1c503d7c55619c42a18bab205"
+      },
+      "experiments": {
+        "count": 2,
+        "sha256": "c508598120370818703bae64e92a5886fa63ba4f72acac8568d65e366f542ec5"
+      },
+      "experiment_runs": {
+        "count": 6,
+        "sha256": "8e8fcfcf6e8558e4e388e732b98980463c976de80016628a097fdb67316a1207"
+      },
+      "experiment_run_annotations": {
+        "count": 5,
+        "sha256": "3e7244aa456a239eec607652efc066299e72d83860b64b10e8df1cf4a312f9ea"
+      }
+    },
+    "clean_source": true,
+    "head": "7e6f20db14a054ca64410228b00efdf4509c4766"
+  }
+}

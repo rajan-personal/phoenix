@@ -1,0 +1,34 @@
+{
+  "before": {
+    "tree": "/home/user/phoenix-without-pr",
+    "sha": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+    "head": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+    "status": "",
+    "sources": {
+      "js/app/src/components/annotation/AnnotationDetailsContent.tsx": "0ea4e6339817700dc62839483d536ff88081c26cf3926e155a13e58585df08ed",
+      "js/app/src/components/annotation/AnnotationTooltip.tsx": "955a88db3b51972d245657a44f7ccb34629d1c60e504f2b78c545c518c53fa1d",
+      "js/app/src/components/table/TextCell.tsx": "802fa5b0d8dfe8ad8dfe38d98a0e0a277909e0c9dcb23e4884ba8404cbdfc729",
+      "js/app/src/components/utility/PrettyText.tsx": "230cc16616040b026bc78e667036cc1e1e75cb816a409c9015d20f1b34ac6f20",
+      "js/app/src/pages/trace/SpanAnnotationsTable.tsx": "a014db46a1fea110063fb960da1f0b7917730fe747606f2bfa1687547fc72ccf",
+      "js/app/src/pages/trace/DocumentAnnotationItem.tsx": "73b85704a16a5238f4f7a4d3978c0aa7091cffc45584733d3e80e86dad009981",
+      "js/app/src/pages/playground/PlaygroundExperimentRunDetailsDialog.tsx": "9323de9794b7ffe6b783d81f41b954398f44b41c15a2ae73eff1e503bf4d21df"
+    },
+    "manifest_sha256": "a26aa757cd95aa05f8582f23f3b93fa4a7ecb26b4397d43212c68f110db4a3c6"
+  },
+  "after": {
+    "tree": "/home/user/phoenix",
+    "sha": "7e6f20db14a054ca64410228b00efdf4509c4766",
+    "head": "7e6f20db14a054ca64410228b00efdf4509c4766",
+    "status": "",
+    "sources": {
+      "js/app/src/components/annotation/AnnotationDetailsContent.tsx": "a3f21e0e44f61068e1b2f769135628a09ecaa25660327d8d276a93be4b3180f5",
+      "js/app/src/components/annotation/AnnotationTooltip.tsx": "e32961a396b5f1d7d027d3312987c4c16c6ed18edeee45d54369ac9292df74e1",
+      "js/app/src/components/table/TextCell.tsx": "7b49a8cfd41a0e61ea16687b683f5e35cc3af16636eb8e78b70a07990849b846",
+      "js/app/src/components/utility/PrettyText.tsx": "9e2da6ccbe9264cf45253717eed50e25a7e2d39d915756c27d82eca3dac60087",
+      "js/app/src/pages/trace/SpanAnnotationsTable.tsx": "b59d19675c257df63ec3987a56626dd1a70982e3e61155f3efd577b5241d2370",
+      "js/app/src/pages/trace/DocumentAnnotationItem.tsx": "273bd5a19da7b4dfdcd8de0158cdda4bc8e95c65e19319345529f992c6a27c85",
+      "js/app/src/pages/playground/PlaygroundExperimentRunDetailsDialog.tsx": "2bec6eced61c0bed430c497b4147c480064af2fdd4fe9e1893ab82aec3fc2e56"
+    },
+    "manifest_sha256": "c402858b4fd1df7c610e7ae9661caa255afe12f50b1d65209e816e14b38b9846"
+  }
+}

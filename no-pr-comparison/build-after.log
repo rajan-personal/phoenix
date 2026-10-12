@@ -1,0 +1,58 @@
+[0;36mBuilding frontend...[0m 
+$ rimraf dist
+$ rimraf dist
+$ rimraf dist
+$ openapi-typescript --empty-objects-unknown=true --default-non-nullable=false ../../../schemas/openapi.json -o ./src/__generated__/api/v1.ts
+✨ openapi-typescript 7.13.0
+🚀 ../../../schemas/openapi.json → ./src/__generated__/api/v1.ts [217.3ms]
+$ rimraf dist
+$ openapi-typescript --empty-objects-unknown=true --default-non-nullable=false ../../../schemas/openapi.json -o ./src/__generated__/api/v1.ts
+✨ openapi-typescript 7.13.0
+🚀 ../../../schemas/openapi.json → ./src/__generated__/api/v1.ts [241.7ms]
+$ relay-compiler
+[INFO] [default] compiling...
+[INFO] [default] compiled documents: 530 reader, 408 normalization, 561 operation text
+[INFO] Compilation completed.
+[INFO] Done.
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vite.config.mts:38:19). Use `import.meta.dirname` instead
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+vite v8.3.1 building client environment for production...
+transforming...
+✓ 7910 modules transformed.
+rendering chunks...
+computing gzip size...
+../../src/phoenix/server/static/.vite/manifest.json                                  3.94 kB │ gzip:     0.66 kB
+../../src/phoenix/server/static/assets/jsSandboxWorker-D4oOr3HH.js                   5.50 kB
+../../src/phoenix/server/static/assets/vendor-streamdown-CXvuy5h3.css                0.54 kB │ gzip:     0.23 kB
+../../src/phoenix/server/static/assets/vendor-B374DXt2.css                           1.35 kB │ gzip:     0.60 kB
+../../src/phoenix/server/static/assets/index-wCRO-9_5.css                            1.92 kB │ gzip:     0.72 kB
+../../src/phoenix/server/static/assets/rolldown-runtime-C_s2cVnS.js                  0.95 kB │ gzip:     0.52 kB
+../../src/phoenix/server/static/assets/ToolPartPierreViews-CNH87ktY.js               1.60 kB │ gzip:     0.83 kB
+../../src/phoenix/server/static/assets/DiffAcceptRejectToolDetails-DNXbupwr.js       2.94 kB │ gzip:     1.40 kB
+../../src/phoenix/server/static/assets/contexts-DjI8XCgv.js                         15.04 kB │ gzip:     4.82 kB
+../../src/phoenix/server/static/assets/vendor-ai-sdk-react-zeFDkSee.js             377.12 kB │ gzip:    98.40 kB
+../../src/phoenix/server/static/assets/vendor-recharts-Ds8T46lo.js                 413.51 kB │ gzip:   116.88 kB
+../../src/phoenix/server/static/assets/vendor-streamdown-D5f7746Z.js             1,003.56 kB │ gzip:   303.85 kB
+../../src/phoenix/server/static/assets/vendor-codemirror-DIQo9U_P.js             1,055.27 kB │ gzip:   359.56 kB
+../../src/phoenix/server/static/assets/vendor-DzhcB2NU.js                        2,386.38 kB │ gzip:   623.28 kB
+../../src/phoenix/server/static/assets/index-CjASSP9I.js                         5,155.94 kB │ gzip: 1,216.23 kB
+../../src/phoenix/server/static/assets/vendor-shiki-CzKUVjZc.js                 20,072.70 kB │ gzip: 3,465.42 kB
+
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level directive "use no memo" in "src/components/generative/GenerativeProviderIcon.tsx" may not be preserved when bundling.
+   [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m src/components/generative/GenerativeProviderIcon.tsx:1:1 [38;5;246m][0m
+   [38;5;246m│[0m
+ [38;5;246m1 │[0m "use no memo";
+ [38;5;240m  │[0m ───────┬──────  
+ [38;5;240m  │[0m        ╰──────── module level directive may not be preserved
+ [38;5;240m  │[0m 
+ [38;5;240m  │[0m [38;5;115mHelp[0m: For more information, see https://rolldown.rs/in-depth/directives#other-directives
+[38;5;246m───╯[0m
+
+✓ built in 4.39s
+[0;32m✓ Done[0m 
