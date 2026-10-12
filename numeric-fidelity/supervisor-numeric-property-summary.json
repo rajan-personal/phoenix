@@ -1,0 +1,10 @@
+{
+  "method": "Exact checked-in helper/guard executed via Node24 type removal; independent Python Decimal verifies mathematical numeric values and atomic fallback. No source edits. Seed11012.",
+  "cases": 5032,
+  "counts": {
+    "native_faithful": 2516,
+    "encoded_faithful": 283,
+    "encoded_atomic_fallback": 2233
+  },
+  "all_passed": true
+}

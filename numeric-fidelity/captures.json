@@ -1,0 +1,2338 @@
+[
+  {
+    "phase": "before",
+    "theme": "light",
+    "name": "document-json",
+    "sha": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+    "url": "http://localhost:6030/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--light theme",
+    "scripts": [
+      "http://localhost:6030/assets/index-xQYroxf4.js"
+    ],
+    "focused": "",
+    "pageOverflow": {
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    "context": "real seeded retriever span",
+    "anchor": {
+      "x": 783.390625,
+      "y": 266.609375,
+      "width": 98.0625,
+      "height": 20
+    },
+    "value": "{\"payload\":\"{\\\"checks\\\":[\\\"cited\\\",\\\"complete\\\"],\\\"score\\\":\\\"1\\\"}\",\"batches\":[\"[\\\"\\\\\\\"{\\\\\\\\\\\\\\\"ok\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\"path\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"C:\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\guide\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"cited\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"}\\\\\\\"\\\"]\"]}",
+    "rendering": "original Text"
+  },
+  {
+    "phase": "before",
+    "theme": "light",
+    "name": "document-plain",
+    "sha": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+    "url": "http://localhost:6030/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--light theme",
+    "scripts": [
+      "http://localhost:6030/assets/index-xQYroxf4.js"
+    ],
+    "focused": "",
+    "pageOverflow": {
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    "context": "real seeded retriever span",
+    "anchor": {
+      "x": 783.390625,
+      "y": 266.703125,
+      "width": 98.0625,
+      "height": 20
+    },
+    "value": "The answer is grounded in the retrieved document.\nSecond line: the cited source supports the conclusion.",
+    "rendering": "original Text"
+  },
+  {
+    "phase": "before",
+    "theme": "light",
+    "name": "document-malformed",
+    "sha": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+    "url": "http://localhost:6030/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--light theme",
+    "scripts": [
+      "http://localhost:6030/assets/index-xQYroxf4.js"
+    ],
+    "focused": "",
+    "pageOverflow": {
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    "context": "real seeded retriever span",
+    "anchor": {
+      "x": 783.390625,
+      "y": 266.796875,
+      "width": 98.0625,
+      "height": 20
+    },
+    "value": "{\"verdict\": \"incomplete\", \"reason\":",
+    "rendering": "original Text"
+  },
+  {
+    "phase": "before",
+    "theme": "light",
+    "name": "table-json",
+    "sha": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+    "url": "http://localhost:6030/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--light theme",
+    "scripts": [
+      "http://localhost:6030/assets/index-xQYroxf4.js"
+    ],
+    "focused": "name",
+    "context": "real seeded span annotation table",
+    "geometry": {
+      "cell": {
+        "x": 718.40625,
+        "y": 416.703125,
+        "width": 320,
+        "height": 145.75
+      },
+      "tableWidth": 1620,
+      "scrollLeft": 404,
+      "scrollTop": 0,
+      "rows": "expanded",
+      "nameSort": "ascending",
+      "pinnedAction": {
+        "x": 1363,
+        "width": 60
+      },
+      "content": {
+        "width": 288,
+        "scrollWidth": 288,
+        "height": 129,
+        "scrollHeight": 129
+      },
+      "lineRects": [
+        {
+          "x": 734.40625,
+          "y": 424.703125,
+          "right": 936.703125,
+          "bottom": 440.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 440.796875,
+          "right": 1020.984375,
+          "bottom": 456.796875
+        },
+        {
+          "x": 734.40625,
+          "y": 456.890625,
+          "right": 970.421875,
+          "bottom": 472.890625
+        },
+        {
+          "x": 734.40625,
+          "y": 472.984375,
+          "right": 1020.984375,
+          "bottom": 488.984375
+        },
+        {
+          "x": 734.40625,
+          "y": 489.078125,
+          "right": 1020.984375,
+          "bottom": 505.078125
+        },
+        {
+          "x": 734.40625,
+          "y": 505.171875,
+          "right": 1020.984375,
+          "bottom": 521.171875
+        },
+        {
+          "x": 734.40625,
+          "y": 521.265625,
+          "right": 1020.984375,
+          "bottom": 537.265625
+        },
+        {
+          "x": 734.40625,
+          "y": 537.359375,
+          "right": 784.984375,
+          "bottom": 553.359375
+        }
+      ]
+    },
+    "value": "{\"payload\":\"{\\\"checks\\\":[\\\"cited\\\",\\\"complete\\\"],\\\"score\\\":\\\"1\\\"}\",\"batches\":[\"[\\\"\\\\\\\"{\\\\\\\\\\\\\\\"ok\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\"path\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"C:\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\guide\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"cited\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"}\\\\\\\"\\\"]\"]}",
+    "rendering": "PreformattedTextCell"
+  },
+  {
+    "phase": "before",
+    "theme": "light",
+    "name": "table-plain",
+    "sha": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+    "url": "http://localhost:6030/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--light theme",
+    "scripts": [
+      "http://localhost:6030/assets/index-xQYroxf4.js"
+    ],
+    "focused": "name",
+    "context": "real seeded span annotation table",
+    "geometry": {
+      "cell": {
+        "x": 718.40625,
+        "y": 367.515625,
+        "width": 320,
+        "height": 81.375
+      },
+      "tableWidth": 1620,
+      "scrollLeft": 404,
+      "scrollTop": 0,
+      "rows": "expanded",
+      "nameSort": "descending",
+      "pinnedAction": {
+        "x": 1363,
+        "width": 60
+      },
+      "content": {
+        "width": 288,
+        "scrollWidth": 288,
+        "height": 64,
+        "scrollHeight": 64
+      },
+      "lineRects": [
+        {
+          "x": 734.40625,
+          "y": 375.515625,
+          "right": 978.84375,
+          "bottom": 391.515625
+        },
+        {
+          "x": 978.84375,
+          "y": 375.515625,
+          "right": 987.28125,
+          "bottom": 391.515625
+        },
+        {
+          "x": 734.40625,
+          "y": 391.609375,
+          "right": 894.5625,
+          "bottom": 407.609375
+        },
+        {
+          "x": 894.5625,
+          "y": 391.609375,
+          "right": 894.5625,
+          "bottom": 407.609375
+        },
+        {
+          "x": 734.40625,
+          "y": 407.703125,
+          "right": 978.84375,
+          "bottom": 423.703125
+        },
+        {
+          "x": 978.84375,
+          "y": 407.703125,
+          "right": 987.28125,
+          "bottom": 423.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 423.796875,
+          "right": 936.703125,
+          "bottom": 439.796875
+        }
+      ]
+    },
+    "value": "The answer is grounded in the retrieved document.\nSecond line: the cited source supports the conclusion.",
+    "rendering": "PreformattedTextCell"
+  },
+  {
+    "phase": "before",
+    "theme": "light",
+    "name": "table-malformed",
+    "sha": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+    "url": "http://localhost:6030/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--light theme",
+    "scripts": [
+      "http://localhost:6030/assets/index-xQYroxf4.js"
+    ],
+    "focused": "name",
+    "context": "real seeded span annotation table",
+    "geometry": {
+      "cell": {
+        "x": 718.40625,
+        "y": 1495.890625,
+        "width": 320,
+        "height": 49.1875
+      },
+      "tableWidth": 1620,
+      "scrollLeft": 404,
+      "scrollTop": 0,
+      "rows": "expanded",
+      "nameSort": "descending",
+      "pinnedAction": {
+        "x": 1363,
+        "width": 60
+      },
+      "content": {
+        "width": 288,
+        "scrollWidth": 288,
+        "height": 32,
+        "scrollHeight": 32
+      },
+      "lineRects": [
+        {
+          "x": 734.40625,
+          "y": 1503.890625,
+          "right": 945.125,
+          "bottom": 1519.890625
+        },
+        {
+          "x": 945.125,
+          "y": 1503.890625,
+          "right": 953.5625,
+          "bottom": 1519.890625
+        },
+        {
+          "x": 734.40625,
+          "y": 1519.984375,
+          "right": 810.265625,
+          "bottom": 1535.984375
+        }
+      ]
+    },
+    "value": "{\"verdict\": \"incomplete\", \"reason\":",
+    "rendering": "PreformattedTextCell"
+  },
+  {
+    "phase": "before",
+    "theme": "light",
+    "name": "table-collapsed",
+    "sha": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+    "url": "http://localhost:6030/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--light theme",
+    "scripts": [
+      "http://localhost:6030/assets/index-xQYroxf4.js"
+    ],
+    "focused": "Wrap each row over as many lines as it needs",
+    "context": "same 320px resized table, name descending, collapsed rows",
+    "scrollLeft": 404
+  },
+  {
+    "phase": "before",
+    "theme": "light",
+    "name": "annotation-json",
+    "sha": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+    "url": "http://localhost:6030/datasets/RGF0YXNldDox/examples/RGF0YXNldEV4YW1wbGU6MQ%3D%3D",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--light theme",
+    "scripts": [
+      "http://localhost:6030/assets/index-xQYroxf4.js"
+    ],
+    "focused": "JSON0.98",
+    "context": "real seeded dataset example evaluation tooltip",
+    "exampleId": "RGF0YXNldEV4YW1wbGU6MQ==",
+    "trigger": {
+      "x": 1236.265625,
+      "y": 778.4375,
+      "width": 155.71875,
+      "height": 30
+    },
+    "tooltip": {
+      "x": 1094,
+      "y": 534,
+      "width": 334,
+      "height": 234
+    },
+    "placement": "top",
+    "value": "{\"payload\":\"{\\\"checks\\\":[\\\"cited\\\",\\\"complete\\\"],\\\"score\\\":\\\"1\\\"}\",\"batches\":[\"[\\\"\\\\\\\"{\\\\\\\\\\\\\\\"ok\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\"path\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"C:\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\guide\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"cited\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"}\\\\\\\"\\\"]\"]}",
+    "rendering": "original Text"
+  },
+  {
+    "phase": "before",
+    "theme": "light",
+    "name": "annotation-plain",
+    "sha": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+    "url": "http://localhost:6030/datasets/RGF0YXNldDox/examples/RGF0YXNldEV4YW1wbGU6Mg%3D%3D",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--light theme",
+    "scripts": [
+      "http://localhost:6030/assets/index-xQYroxf4.js"
+    ],
+    "focused": "Plain text0.98",
+    "context": "real seeded dataset example evaluation tooltip",
+    "exampleId": "RGF0YXNldEV4YW1wbGU6Mg==",
+    "trigger": {
+      "x": 1236.265625,
+      "y": 774.296875,
+      "width": 155.71875,
+      "height": 30
+    },
+    "tooltip": {
+      "x": 1094,
+      "y": 550,
+      "width": 334,
+      "height": 214
+    },
+    "placement": "top",
+    "value": "The answer is grounded in the retrieved document.\nSecond line: the cited source supports the conclusion.",
+    "rendering": "original Text"
+  },
+  {
+    "phase": "before",
+    "theme": "light",
+    "name": "annotation-malformed",
+    "sha": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+    "url": "http://localhost:6030/datasets/RGF0YXNldDox/examples/RGF0YXNldEV4YW1wbGU6Mw%3D%3D",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--light theme",
+    "scripts": [
+      "http://localhost:6030/assets/index-xQYroxf4.js"
+    ],
+    "focused": "Malformed JSON0.98",
+    "context": "real seeded dataset example evaluation tooltip",
+    "exampleId": "RGF0YXNldEV4YW1wbGU6Mw==",
+    "trigger": {
+      "x": 1123.484375,
+      "y": 769.296875,
+      "width": 162,
+      "height": 30
+    },
+    "tooltip": {
+      "x": 1084.484375,
+      "y": 585,
+      "width": 239.6875,
+      "height": 174
+    },
+    "placement": "top",
+    "value": "{\"verdict\": \"incomplete\", \"reason\":",
+    "rendering": "original Text"
+  },
+  {
+    "phase": "before",
+    "theme": "dark",
+    "name": "document-json",
+    "sha": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+    "url": "http://localhost:6030/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--dark theme",
+    "scripts": [
+      "http://localhost:6030/assets/index-xQYroxf4.js"
+    ],
+    "focused": "",
+    "pageOverflow": {
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    "context": "real seeded retriever span",
+    "anchor": {
+      "x": 783.390625,
+      "y": 266.609375,
+      "width": 98.0625,
+      "height": 20
+    },
+    "value": "{\"payload\":\"{\\\"checks\\\":[\\\"cited\\\",\\\"complete\\\"],\\\"score\\\":\\\"1\\\"}\",\"batches\":[\"[\\\"\\\\\\\"{\\\\\\\\\\\\\\\"ok\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\"path\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"C:\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\guide\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"cited\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"}\\\\\\\"\\\"]\"]}",
+    "rendering": "original Text"
+  },
+  {
+    "phase": "before",
+    "theme": "dark",
+    "name": "document-plain",
+    "sha": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+    "url": "http://localhost:6030/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--dark theme",
+    "scripts": [
+      "http://localhost:6030/assets/index-xQYroxf4.js"
+    ],
+    "focused": "",
+    "pageOverflow": {
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    "context": "real seeded retriever span",
+    "anchor": {
+      "x": 783.390625,
+      "y": 266.703125,
+      "width": 98.0625,
+      "height": 20
+    },
+    "value": "The answer is grounded in the retrieved document.\nSecond line: the cited source supports the conclusion.",
+    "rendering": "original Text"
+  },
+  {
+    "phase": "before",
+    "theme": "dark",
+    "name": "document-malformed",
+    "sha": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+    "url": "http://localhost:6030/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--dark theme",
+    "scripts": [
+      "http://localhost:6030/assets/index-xQYroxf4.js"
+    ],
+    "focused": "",
+    "pageOverflow": {
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    "context": "real seeded retriever span",
+    "anchor": {
+      "x": 783.390625,
+      "y": 266.796875,
+      "width": 98.0625,
+      "height": 20
+    },
+    "value": "{\"verdict\": \"incomplete\", \"reason\":",
+    "rendering": "original Text"
+  },
+  {
+    "phase": "before",
+    "theme": "dark",
+    "name": "table-json",
+    "sha": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+    "url": "http://localhost:6030/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--dark theme",
+    "scripts": [
+      "http://localhost:6030/assets/index-xQYroxf4.js"
+    ],
+    "focused": "name",
+    "context": "real seeded span annotation table",
+    "geometry": {
+      "cell": {
+        "x": 718.40625,
+        "y": 416.703125,
+        "width": 320,
+        "height": 145.75
+      },
+      "tableWidth": 1620,
+      "scrollLeft": 404,
+      "scrollTop": 0,
+      "rows": "expanded",
+      "nameSort": "ascending",
+      "pinnedAction": {
+        "x": 1363,
+        "width": 60
+      },
+      "content": {
+        "width": 288,
+        "scrollWidth": 288,
+        "height": 129,
+        "scrollHeight": 129
+      },
+      "lineRects": [
+        {
+          "x": 734.40625,
+          "y": 424.703125,
+          "right": 936.703125,
+          "bottom": 440.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 440.796875,
+          "right": 1020.984375,
+          "bottom": 456.796875
+        },
+        {
+          "x": 734.40625,
+          "y": 456.890625,
+          "right": 970.421875,
+          "bottom": 472.890625
+        },
+        {
+          "x": 734.40625,
+          "y": 472.984375,
+          "right": 1020.984375,
+          "bottom": 488.984375
+        },
+        {
+          "x": 734.40625,
+          "y": 489.078125,
+          "right": 1020.984375,
+          "bottom": 505.078125
+        },
+        {
+          "x": 734.40625,
+          "y": 505.171875,
+          "right": 1020.984375,
+          "bottom": 521.171875
+        },
+        {
+          "x": 734.40625,
+          "y": 521.265625,
+          "right": 1020.984375,
+          "bottom": 537.265625
+        },
+        {
+          "x": 734.40625,
+          "y": 537.359375,
+          "right": 784.984375,
+          "bottom": 553.359375
+        }
+      ]
+    },
+    "value": "{\"payload\":\"{\\\"checks\\\":[\\\"cited\\\",\\\"complete\\\"],\\\"score\\\":\\\"1\\\"}\",\"batches\":[\"[\\\"\\\\\\\"{\\\\\\\\\\\\\\\"ok\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\"path\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"C:\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\guide\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"cited\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"}\\\\\\\"\\\"]\"]}",
+    "rendering": "PreformattedTextCell"
+  },
+  {
+    "phase": "before",
+    "theme": "dark",
+    "name": "table-plain",
+    "sha": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+    "url": "http://localhost:6030/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--dark theme",
+    "scripts": [
+      "http://localhost:6030/assets/index-xQYroxf4.js"
+    ],
+    "focused": "name",
+    "context": "real seeded span annotation table",
+    "geometry": {
+      "cell": {
+        "x": 718.40625,
+        "y": 367.515625,
+        "width": 320,
+        "height": 81.375
+      },
+      "tableWidth": 1620,
+      "scrollLeft": 404,
+      "scrollTop": 0,
+      "rows": "expanded",
+      "nameSort": "descending",
+      "pinnedAction": {
+        "x": 1363,
+        "width": 60
+      },
+      "content": {
+        "width": 288,
+        "scrollWidth": 288,
+        "height": 64,
+        "scrollHeight": 64
+      },
+      "lineRects": [
+        {
+          "x": 734.40625,
+          "y": 375.515625,
+          "right": 978.84375,
+          "bottom": 391.515625
+        },
+        {
+          "x": 978.84375,
+          "y": 375.515625,
+          "right": 987.28125,
+          "bottom": 391.515625
+        },
+        {
+          "x": 734.40625,
+          "y": 391.609375,
+          "right": 894.5625,
+          "bottom": 407.609375
+        },
+        {
+          "x": 894.5625,
+          "y": 391.609375,
+          "right": 894.5625,
+          "bottom": 407.609375
+        },
+        {
+          "x": 734.40625,
+          "y": 407.703125,
+          "right": 978.84375,
+          "bottom": 423.703125
+        },
+        {
+          "x": 978.84375,
+          "y": 407.703125,
+          "right": 987.28125,
+          "bottom": 423.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 423.796875,
+          "right": 936.703125,
+          "bottom": 439.796875
+        }
+      ]
+    },
+    "value": "The answer is grounded in the retrieved document.\nSecond line: the cited source supports the conclusion.",
+    "rendering": "PreformattedTextCell"
+  },
+  {
+    "phase": "before",
+    "theme": "dark",
+    "name": "table-malformed",
+    "sha": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+    "url": "http://localhost:6030/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--dark theme",
+    "scripts": [
+      "http://localhost:6030/assets/index-xQYroxf4.js"
+    ],
+    "focused": "name",
+    "context": "real seeded span annotation table",
+    "geometry": {
+      "cell": {
+        "x": 718.40625,
+        "y": 1495.890625,
+        "width": 320,
+        "height": 49.1875
+      },
+      "tableWidth": 1620,
+      "scrollLeft": 404,
+      "scrollTop": 0,
+      "rows": "expanded",
+      "nameSort": "descending",
+      "pinnedAction": {
+        "x": 1363,
+        "width": 60
+      },
+      "content": {
+        "width": 288,
+        "scrollWidth": 288,
+        "height": 32,
+        "scrollHeight": 32
+      },
+      "lineRects": [
+        {
+          "x": 734.40625,
+          "y": 1503.890625,
+          "right": 945.125,
+          "bottom": 1519.890625
+        },
+        {
+          "x": 945.125,
+          "y": 1503.890625,
+          "right": 953.5625,
+          "bottom": 1519.890625
+        },
+        {
+          "x": 734.40625,
+          "y": 1519.984375,
+          "right": 810.265625,
+          "bottom": 1535.984375
+        }
+      ]
+    },
+    "value": "{\"verdict\": \"incomplete\", \"reason\":",
+    "rendering": "PreformattedTextCell"
+  },
+  {
+    "phase": "before",
+    "theme": "dark",
+    "name": "table-collapsed",
+    "sha": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+    "url": "http://localhost:6030/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--dark theme",
+    "scripts": [
+      "http://localhost:6030/assets/index-xQYroxf4.js"
+    ],
+    "focused": "Wrap each row over as many lines as it needs",
+    "context": "same 320px resized table, name descending, collapsed rows",
+    "scrollLeft": 404
+  },
+  {
+    "phase": "before",
+    "theme": "dark",
+    "name": "annotation-json",
+    "sha": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+    "url": "http://localhost:6030/datasets/RGF0YXNldDox/examples/RGF0YXNldEV4YW1wbGU6MQ%3D%3D",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--dark theme",
+    "scripts": [
+      "http://localhost:6030/assets/index-xQYroxf4.js"
+    ],
+    "focused": "JSON0.98",
+    "context": "real seeded dataset example evaluation tooltip",
+    "exampleId": "RGF0YXNldEV4YW1wbGU6MQ==",
+    "trigger": {
+      "x": 1236.265625,
+      "y": 778.4375,
+      "width": 155.71875,
+      "height": 30
+    },
+    "tooltip": {
+      "x": 1094,
+      "y": 534,
+      "width": 334,
+      "height": 234
+    },
+    "placement": "top",
+    "value": "{\"payload\":\"{\\\"checks\\\":[\\\"cited\\\",\\\"complete\\\"],\\\"score\\\":\\\"1\\\"}\",\"batches\":[\"[\\\"\\\\\\\"{\\\\\\\\\\\\\\\"ok\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\"path\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"C:\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\guide\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"cited\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"}\\\\\\\"\\\"]\"]}",
+    "rendering": "original Text"
+  },
+  {
+    "phase": "before",
+    "theme": "dark",
+    "name": "annotation-plain",
+    "sha": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+    "url": "http://localhost:6030/datasets/RGF0YXNldDox/examples/RGF0YXNldEV4YW1wbGU6Mg%3D%3D",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--dark theme",
+    "scripts": [
+      "http://localhost:6030/assets/index-xQYroxf4.js"
+    ],
+    "focused": "Plain text0.98",
+    "context": "real seeded dataset example evaluation tooltip",
+    "exampleId": "RGF0YXNldEV4YW1wbGU6Mg==",
+    "trigger": {
+      "x": 1236.265625,
+      "y": 774.296875,
+      "width": 155.71875,
+      "height": 30
+    },
+    "tooltip": {
+      "x": 1094,
+      "y": 550,
+      "width": 334,
+      "height": 214
+    },
+    "placement": "top",
+    "value": "The answer is grounded in the retrieved document.\nSecond line: the cited source supports the conclusion.",
+    "rendering": "original Text"
+  },
+  {
+    "phase": "before",
+    "theme": "dark",
+    "name": "annotation-malformed",
+    "sha": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+    "url": "http://localhost:6030/datasets/RGF0YXNldDox/examples/RGF0YXNldEV4YW1wbGU6Mw%3D%3D",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--dark theme",
+    "scripts": [
+      "http://localhost:6030/assets/index-xQYroxf4.js"
+    ],
+    "focused": "Malformed JSON0.98",
+    "context": "real seeded dataset example evaluation tooltip",
+    "exampleId": "RGF0YXNldEV4YW1wbGU6Mw==",
+    "trigger": {
+      "x": 1123.484375,
+      "y": 769.296875,
+      "width": 162,
+      "height": 30
+    },
+    "tooltip": {
+      "x": 1084.484375,
+      "y": 585,
+      "width": 239.6875,
+      "height": 174
+    },
+    "placement": "top",
+    "value": "{\"verdict\": \"incomplete\", \"reason\":",
+    "rendering": "original Text"
+  },
+  {
+    "phase": "after",
+    "theme": "light",
+    "name": "document-json",
+    "sha": "7b53c86a2f2b80f124e49a433f3cb23a31d50c68",
+    "url": "http://localhost:6031/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--light theme",
+    "scripts": [
+      "http://localhost:6031/assets/index-CmjJGgrs.js"
+    ],
+    "focused": "",
+    "pageOverflow": {
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    "context": "real seeded retriever span",
+    "anchor": {
+      "x": 783.390625,
+      "y": 266.609375,
+      "width": 98.0625,
+      "height": 20
+    },
+    "value": "{\n  \"payload\": {\n    \"checks\": [\n      \"cited\",\n      \"complete\"\n    ],\n    \"score\": \"1\"\n  },\n  \"batches\": [\n    [\n      {\n        \"ok\": true,\n        \"path\": \"C:\\\\guide\\n\\\"cited\\\"\"\n      }\n    ]\n  ]\n}",
+    "rendering": "compact PrettyText"
+  },
+  {
+    "phase": "after",
+    "theme": "light",
+    "name": "document-plain",
+    "sha": "7b53c86a2f2b80f124e49a433f3cb23a31d50c68",
+    "url": "http://localhost:6031/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--light theme",
+    "scripts": [
+      "http://localhost:6031/assets/index-CmjJGgrs.js"
+    ],
+    "focused": "",
+    "pageOverflow": {
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    "context": "real seeded retriever span",
+    "anchor": {
+      "x": 783.390625,
+      "y": 266.703125,
+      "width": 98.0625,
+      "height": 20
+    },
+    "value": "The answer is grounded in the retrieved document.\nSecond line: the cited source supports the conclusion.",
+    "rendering": "compact PrettyText"
+  },
+  {
+    "phase": "after",
+    "theme": "light",
+    "name": "document-malformed",
+    "sha": "7b53c86a2f2b80f124e49a433f3cb23a31d50c68",
+    "url": "http://localhost:6031/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--light theme",
+    "scripts": [
+      "http://localhost:6031/assets/index-CmjJGgrs.js"
+    ],
+    "focused": "",
+    "pageOverflow": {
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    "context": "real seeded retriever span",
+    "anchor": {
+      "x": 783.390625,
+      "y": 266.796875,
+      "width": 98.0625,
+      "height": 20
+    },
+    "value": "{\"verdict\": \"incomplete\", \"reason\":",
+    "rendering": "compact PrettyText"
+  },
+  {
+    "phase": "after",
+    "theme": "light",
+    "name": "table-json",
+    "sha": "7b53c86a2f2b80f124e49a433f3cb23a31d50c68",
+    "url": "http://localhost:6031/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--light theme",
+    "scripts": [
+      "http://localhost:6031/assets/index-CmjJGgrs.js"
+    ],
+    "focused": "name",
+    "context": "real seeded span annotation table",
+    "geometry": {
+      "cell": {
+        "x": 718.40625,
+        "y": 416.703125,
+        "width": 320,
+        "height": 397
+      },
+      "tableWidth": 1620,
+      "scrollLeft": 404,
+      "scrollTop": 0,
+      "rows": "expanded",
+      "nameSort": "ascending",
+      "pinnedAction": {
+        "x": 1363,
+        "width": 60
+      },
+      "content": {
+        "width": 288,
+        "scrollWidth": 288,
+        "height": 360,
+        "scrollHeight": 360
+      },
+      "lineRects": [
+        {
+          "x": 734.40625,
+          "y": 446.703125,
+          "right": 742.84375,
+          "bottom": 462.703125
+        },
+        {
+          "x": 742.84375,
+          "y": 446.703125,
+          "right": 742.84375,
+          "bottom": 462.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 466.703125,
+          "right": 751.265625,
+          "bottom": 482.703125
+        },
+        {
+          "x": 751.265625,
+          "y": 466.703125,
+          "right": 852.421875,
+          "bottom": 482.703125
+        },
+        {
+          "x": 852.421875,
+          "y": 466.703125,
+          "right": 852.421875,
+          "bottom": 482.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 486.703125,
+          "right": 768.125,
+          "bottom": 502.703125
+        },
+        {
+          "x": 768.125,
+          "y": 486.703125,
+          "right": 860.84375,
+          "bottom": 502.703125
+        },
+        {
+          "x": 860.84375,
+          "y": 486.703125,
+          "right": 860.84375,
+          "bottom": 502.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 506.703125,
+          "right": 784.984375,
+          "bottom": 522.703125
+        },
+        {
+          "x": 784.984375,
+          "y": 506.703125,
+          "right": 852.421875,
+          "bottom": 522.703125
+        },
+        {
+          "x": 852.421875,
+          "y": 506.703125,
+          "right": 852.421875,
+          "bottom": 522.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 526.703125,
+          "right": 784.984375,
+          "bottom": 542.703125
+        },
+        {
+          "x": 784.984375,
+          "y": 526.703125,
+          "right": 869.28125,
+          "bottom": 542.703125
+        },
+        {
+          "x": 869.28125,
+          "y": 526.703125,
+          "right": 869.28125,
+          "bottom": 542.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 546.703125,
+          "right": 768.125,
+          "bottom": 562.703125
+        },
+        {
+          "x": 768.125,
+          "y": 546.703125,
+          "right": 784.984375,
+          "bottom": 562.703125
+        },
+        {
+          "x": 784.984375,
+          "y": 546.703125,
+          "right": 784.984375,
+          "bottom": 562.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 566.703125,
+          "right": 768.125,
+          "bottom": 582.703125
+        },
+        {
+          "x": 768.125,
+          "y": 566.703125,
+          "right": 869.28125,
+          "bottom": 582.703125
+        },
+        {
+          "x": 869.28125,
+          "y": 566.703125,
+          "right": 869.28125,
+          "bottom": 582.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 586.703125,
+          "right": 751.265625,
+          "bottom": 602.703125
+        },
+        {
+          "x": 751.265625,
+          "y": 586.703125,
+          "right": 768.125,
+          "bottom": 602.703125
+        },
+        {
+          "x": 768.125,
+          "y": 586.703125,
+          "right": 768.125,
+          "bottom": 602.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 606.703125,
+          "right": 751.265625,
+          "bottom": 622.703125
+        },
+        {
+          "x": 751.265625,
+          "y": 606.703125,
+          "right": 852.421875,
+          "bottom": 622.703125
+        },
+        {
+          "x": 852.421875,
+          "y": 606.703125,
+          "right": 852.421875,
+          "bottom": 622.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 626.703125,
+          "right": 768.125,
+          "bottom": 642.703125
+        },
+        {
+          "x": 768.125,
+          "y": 626.703125,
+          "right": 776.5625,
+          "bottom": 642.703125
+        },
+        {
+          "x": 776.5625,
+          "y": 626.703125,
+          "right": 776.5625,
+          "bottom": 642.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 646.703125,
+          "right": 784.984375,
+          "bottom": 662.703125
+        },
+        {
+          "x": 784.984375,
+          "y": 646.703125,
+          "right": 793.421875,
+          "bottom": 662.703125
+        },
+        {
+          "x": 793.421875,
+          "y": 646.703125,
+          "right": 793.421875,
+          "bottom": 662.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 666.703125,
+          "right": 801.84375,
+          "bottom": 682.703125
+        },
+        {
+          "x": 801.84375,
+          "y": 666.703125,
+          "right": 894.5625,
+          "bottom": 682.703125
+        },
+        {
+          "x": 894.5625,
+          "y": 666.703125,
+          "right": 894.5625,
+          "bottom": 682.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 686.703125,
+          "right": 801.84375,
+          "bottom": 702.703125
+        },
+        {
+          "x": 801.84375,
+          "y": 686.703125,
+          "right": 860.859375,
+          "bottom": 702.703125
+        },
+        {
+          "x": 860.859375,
+          "y": 686.703125,
+          "right": 869.296875,
+          "bottom": 702.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 706.703125,
+          "right": 919.84375,
+          "bottom": 722.703125
+        },
+        {
+          "x": 919.84375,
+          "y": 706.703125,
+          "right": 919.84375,
+          "bottom": 722.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 726.703125,
+          "right": 784.984375,
+          "bottom": 742.703125
+        },
+        {
+          "x": 784.984375,
+          "y": 726.703125,
+          "right": 793.421875,
+          "bottom": 742.703125
+        },
+        {
+          "x": 793.421875,
+          "y": 726.703125,
+          "right": 793.421875,
+          "bottom": 742.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 746.703125,
+          "right": 768.125,
+          "bottom": 762.703125
+        },
+        {
+          "x": 768.125,
+          "y": 746.703125,
+          "right": 776.5625,
+          "bottom": 762.703125
+        },
+        {
+          "x": 776.5625,
+          "y": 746.703125,
+          "right": 776.5625,
+          "bottom": 762.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 766.703125,
+          "right": 751.265625,
+          "bottom": 782.703125
+        },
+        {
+          "x": 751.265625,
+          "y": 766.703125,
+          "right": 759.703125,
+          "bottom": 782.703125
+        },
+        {
+          "x": 759.703125,
+          "y": 766.703125,
+          "right": 759.703125,
+          "bottom": 782.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 786.703125,
+          "right": 742.84375,
+          "bottom": 802.703125
+        }
+      ]
+    },
+    "value": "{\n  \"payload\": {\n    \"checks\": [\n      \"cited\",\n      \"complete\"\n    ],\n    \"score\": \"1\"\n  },\n  \"batches\": [\n    [\n      {\n        \"ok\": true,\n        \"path\": \"C:\\\\guide\\n\\\"cited\\\"\"\n      }\n    ]\n  ]\n}",
+    "rendering": "compact PrettyTextCell"
+  },
+  {
+    "phase": "after",
+    "theme": "light",
+    "name": "table-plain",
+    "sha": "7b53c86a2f2b80f124e49a433f3cb23a31d50c68",
+    "url": "http://localhost:6031/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--light theme",
+    "scripts": [
+      "http://localhost:6031/assets/index-CmjJGgrs.js"
+    ],
+    "focused": "name",
+    "context": "real seeded span annotation table",
+    "geometry": {
+      "cell": {
+        "x": 718.40625,
+        "y": 367.515625,
+        "width": 320,
+        "height": 97
+      },
+      "tableWidth": 1620,
+      "scrollLeft": 404,
+      "scrollTop": 0,
+      "rows": "expanded",
+      "nameSort": "descending",
+      "pinnedAction": {
+        "x": 1363,
+        "width": 60
+      },
+      "content": {
+        "width": 288,
+        "scrollWidth": 288,
+        "height": 80,
+        "scrollHeight": 80
+      },
+      "lineRects": [
+        {
+          "x": 734.40625,
+          "y": 377.515625,
+          "right": 981.109375,
+          "bottom": 393.515625
+        },
+        {
+          "x": 981.109375,
+          "y": 377.515625,
+          "right": 985,
+          "bottom": 393.515625
+        },
+        {
+          "x": 734.40625,
+          "y": 397.515625,
+          "right": 799.78125,
+          "bottom": 413.515625
+        },
+        {
+          "x": 799.78125,
+          "y": 397.515625,
+          "right": 799.78125,
+          "bottom": 413.515625
+        },
+        {
+          "x": 734.40625,
+          "y": 417.515625,
+          "right": 995.125,
+          "bottom": 433.515625
+        },
+        {
+          "x": 995.125,
+          "y": 417.515625,
+          "right": 999.015625,
+          "bottom": 433.515625
+        },
+        {
+          "x": 734.40625,
+          "y": 437.515625,
+          "right": 804.453125,
+          "bottom": 453.515625
+        }
+      ]
+    },
+    "value": "The answer is grounded in the retrieved document.\nSecond line: the cited source supports the conclusion.",
+    "rendering": "compact PrettyTextCell"
+  },
+  {
+    "phase": "after",
+    "theme": "light",
+    "name": "table-malformed",
+    "sha": "7b53c86a2f2b80f124e49a433f3cb23a31d50c68",
+    "url": "http://localhost:6031/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--light theme",
+    "scripts": [
+      "http://localhost:6031/assets/index-CmjJGgrs.js"
+    ],
+    "focused": "name",
+    "context": "real seeded span annotation table",
+    "geometry": {
+      "cell": {
+        "x": 718.40625,
+        "y": 1641.515625,
+        "width": 320,
+        "height": 49.1875
+      },
+      "tableWidth": 1620,
+      "scrollLeft": 404,
+      "scrollTop": 0,
+      "rows": "expanded",
+      "nameSort": "descending",
+      "pinnedAction": {
+        "x": 1363,
+        "width": 60
+      },
+      "content": {
+        "width": 288,
+        "scrollWidth": 288,
+        "height": 20,
+        "scrollHeight": 20
+      },
+      "lineRects": [
+        {
+          "x": 734.40625,
+          "y": 1651.515625,
+          "right": 940.09375,
+          "bottom": 1667.515625
+        }
+      ]
+    },
+    "value": "{\"verdict\": \"incomplete\", \"reason\":",
+    "rendering": "compact PrettyTextCell"
+  },
+  {
+    "phase": "after",
+    "theme": "light",
+    "name": "table-collapsed",
+    "sha": "7b53c86a2f2b80f124e49a433f3cb23a31d50c68",
+    "url": "http://localhost:6031/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--light theme",
+    "scripts": [
+      "http://localhost:6031/assets/index-CmjJGgrs.js"
+    ],
+    "focused": "Wrap each row over as many lines as it needs",
+    "context": "same 320px resized table, name descending, collapsed rows",
+    "scrollLeft": 404
+  },
+  {
+    "phase": "after",
+    "theme": "light",
+    "name": "annotation-json",
+    "sha": "7b53c86a2f2b80f124e49a433f3cb23a31d50c68",
+    "url": "http://localhost:6031/datasets/RGF0YXNldDox/examples/RGF0YXNldEV4YW1wbGU6MQ%3D%3D",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--light theme",
+    "scripts": [
+      "http://localhost:6031/assets/index-CmjJGgrs.js"
+    ],
+    "focused": "JSON0.98",
+    "context": "real seeded dataset example evaluation tooltip",
+    "exampleId": "RGF0YXNldEV4YW1wbGU6MQ==",
+    "trigger": {
+      "x": 1236.265625,
+      "y": 778.4375,
+      "width": 155.71875,
+      "height": 30
+    },
+    "tooltip": {
+      "x": 892,
+      "y": 534,
+      "width": 334,
+      "height": 454
+    },
+    "placement": "left",
+    "value": "{\n  \"payload\": {\n    \"checks\": [\n      \"cited\",\n      \"complete\"\n    ],\n    \"score\": \"1\"\n  },\n  \"batches\": [\n    [\n      {\n        \"ok\": true,\n        \"path\": \"C:\\\\guide\\n\\\"cited\\\"\"\n      }\n    ]\n  ]\n}",
+    "rendering": "compact PrettyText"
+  },
+  {
+    "phase": "after",
+    "theme": "light",
+    "name": "annotation-plain",
+    "sha": "7b53c86a2f2b80f124e49a433f3cb23a31d50c68",
+    "url": "http://localhost:6031/datasets/RGF0YXNldDox/examples/RGF0YXNldEV4YW1wbGU6Mg%3D%3D",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--light theme",
+    "scripts": [
+      "http://localhost:6031/assets/index-CmjJGgrs.js"
+    ],
+    "focused": "Plain text0.98",
+    "context": "real seeded dataset example evaluation tooltip",
+    "exampleId": "RGF0YXNldEV4YW1wbGU6Mg==",
+    "trigger": {
+      "x": 1236.265625,
+      "y": 774.296875,
+      "width": 155.71875,
+      "height": 30
+    },
+    "tooltip": {
+      "x": 892,
+      "y": 672.296875,
+      "width": 334,
+      "height": 234
+    },
+    "placement": "left",
+    "value": "The answer is grounded in the retrieved document.\nSecond line: the cited source supports the conclusion.",
+    "rendering": "compact PrettyText"
+  },
+  {
+    "phase": "after",
+    "theme": "light",
+    "name": "annotation-malformed",
+    "sha": "7b53c86a2f2b80f124e49a433f3cb23a31d50c68",
+    "url": "http://localhost:6031/datasets/RGF0YXNldDox/examples/RGF0YXNldEV4YW1wbGU6Mw%3D%3D",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--light theme",
+    "scripts": [
+      "http://localhost:6031/assets/index-CmjJGgrs.js"
+    ],
+    "focused": "Malformed JSON0.98",
+    "context": "real seeded dataset example evaluation tooltip",
+    "exampleId": "RGF0YXNldEV4YW1wbGU6Mw==",
+    "trigger": {
+      "x": 1123.484375,
+      "y": 769.296875,
+      "width": 162,
+      "height": 30
+    },
+    "tooltip": {
+      "x": 873.3125,
+      "y": 697.296875,
+      "width": 239.6875,
+      "height": 174
+    },
+    "placement": "left",
+    "value": "{\"verdict\": \"incomplete\", \"reason\":",
+    "rendering": "compact PrettyText"
+  },
+  {
+    "phase": "after",
+    "theme": "dark",
+    "name": "document-json",
+    "sha": "7b53c86a2f2b80f124e49a433f3cb23a31d50c68",
+    "url": "http://localhost:6031/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--dark theme",
+    "scripts": [
+      "http://localhost:6031/assets/index-CmjJGgrs.js"
+    ],
+    "focused": "",
+    "pageOverflow": {
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    "context": "real seeded retriever span",
+    "anchor": {
+      "x": 783.390625,
+      "y": 266.609375,
+      "width": 98.0625,
+      "height": 20
+    },
+    "value": "{\n  \"payload\": {\n    \"checks\": [\n      \"cited\",\n      \"complete\"\n    ],\n    \"score\": \"1\"\n  },\n  \"batches\": [\n    [\n      {\n        \"ok\": true,\n        \"path\": \"C:\\\\guide\\n\\\"cited\\\"\"\n      }\n    ]\n  ]\n}",
+    "rendering": "compact PrettyText"
+  },
+  {
+    "phase": "after",
+    "theme": "dark",
+    "name": "document-plain",
+    "sha": "7b53c86a2f2b80f124e49a433f3cb23a31d50c68",
+    "url": "http://localhost:6031/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--dark theme",
+    "scripts": [
+      "http://localhost:6031/assets/index-CmjJGgrs.js"
+    ],
+    "focused": "",
+    "pageOverflow": {
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    "context": "real seeded retriever span",
+    "anchor": {
+      "x": 783.390625,
+      "y": 266.703125,
+      "width": 98.0625,
+      "height": 20
+    },
+    "value": "The answer is grounded in the retrieved document.\nSecond line: the cited source supports the conclusion.",
+    "rendering": "compact PrettyText"
+  },
+  {
+    "phase": "after",
+    "theme": "dark",
+    "name": "document-malformed",
+    "sha": "7b53c86a2f2b80f124e49a433f3cb23a31d50c68",
+    "url": "http://localhost:6031/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--dark theme",
+    "scripts": [
+      "http://localhost:6031/assets/index-CmjJGgrs.js"
+    ],
+    "focused": "",
+    "pageOverflow": {
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    "context": "real seeded retriever span",
+    "anchor": {
+      "x": 783.390625,
+      "y": 266.796875,
+      "width": 98.0625,
+      "height": 20
+    },
+    "value": "{\"verdict\": \"incomplete\", \"reason\":",
+    "rendering": "compact PrettyText"
+  },
+  {
+    "phase": "after",
+    "theme": "dark",
+    "name": "table-json",
+    "sha": "7b53c86a2f2b80f124e49a433f3cb23a31d50c68",
+    "url": "http://localhost:6031/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--dark theme",
+    "scripts": [
+      "http://localhost:6031/assets/index-CmjJGgrs.js"
+    ],
+    "focused": "name",
+    "context": "real seeded span annotation table",
+    "geometry": {
+      "cell": {
+        "x": 718.40625,
+        "y": 416.703125,
+        "width": 320,
+        "height": 397
+      },
+      "tableWidth": 1620,
+      "scrollLeft": 404,
+      "scrollTop": 0,
+      "rows": "expanded",
+      "nameSort": "ascending",
+      "pinnedAction": {
+        "x": 1363,
+        "width": 60
+      },
+      "content": {
+        "width": 288,
+        "scrollWidth": 288,
+        "height": 360,
+        "scrollHeight": 360
+      },
+      "lineRects": [
+        {
+          "x": 734.40625,
+          "y": 446.703125,
+          "right": 742.84375,
+          "bottom": 462.703125
+        },
+        {
+          "x": 742.84375,
+          "y": 446.703125,
+          "right": 742.84375,
+          "bottom": 462.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 466.703125,
+          "right": 751.265625,
+          "bottom": 482.703125
+        },
+        {
+          "x": 751.265625,
+          "y": 466.703125,
+          "right": 852.421875,
+          "bottom": 482.703125
+        },
+        {
+          "x": 852.421875,
+          "y": 466.703125,
+          "right": 852.421875,
+          "bottom": 482.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 486.703125,
+          "right": 768.125,
+          "bottom": 502.703125
+        },
+        {
+          "x": 768.125,
+          "y": 486.703125,
+          "right": 860.84375,
+          "bottom": 502.703125
+        },
+        {
+          "x": 860.84375,
+          "y": 486.703125,
+          "right": 860.84375,
+          "bottom": 502.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 506.703125,
+          "right": 784.984375,
+          "bottom": 522.703125
+        },
+        {
+          "x": 784.984375,
+          "y": 506.703125,
+          "right": 852.421875,
+          "bottom": 522.703125
+        },
+        {
+          "x": 852.421875,
+          "y": 506.703125,
+          "right": 852.421875,
+          "bottom": 522.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 526.703125,
+          "right": 784.984375,
+          "bottom": 542.703125
+        },
+        {
+          "x": 784.984375,
+          "y": 526.703125,
+          "right": 869.28125,
+          "bottom": 542.703125
+        },
+        {
+          "x": 869.28125,
+          "y": 526.703125,
+          "right": 869.28125,
+          "bottom": 542.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 546.703125,
+          "right": 768.125,
+          "bottom": 562.703125
+        },
+        {
+          "x": 768.125,
+          "y": 546.703125,
+          "right": 784.984375,
+          "bottom": 562.703125
+        },
+        {
+          "x": 784.984375,
+          "y": 546.703125,
+          "right": 784.984375,
+          "bottom": 562.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 566.703125,
+          "right": 768.125,
+          "bottom": 582.703125
+        },
+        {
+          "x": 768.125,
+          "y": 566.703125,
+          "right": 869.28125,
+          "bottom": 582.703125
+        },
+        {
+          "x": 869.28125,
+          "y": 566.703125,
+          "right": 869.28125,
+          "bottom": 582.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 586.703125,
+          "right": 751.265625,
+          "bottom": 602.703125
+        },
+        {
+          "x": 751.265625,
+          "y": 586.703125,
+          "right": 768.125,
+          "bottom": 602.703125
+        },
+        {
+          "x": 768.125,
+          "y": 586.703125,
+          "right": 768.125,
+          "bottom": 602.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 606.703125,
+          "right": 751.265625,
+          "bottom": 622.703125
+        },
+        {
+          "x": 751.265625,
+          "y": 606.703125,
+          "right": 852.421875,
+          "bottom": 622.703125
+        },
+        {
+          "x": 852.421875,
+          "y": 606.703125,
+          "right": 852.421875,
+          "bottom": 622.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 626.703125,
+          "right": 768.125,
+          "bottom": 642.703125
+        },
+        {
+          "x": 768.125,
+          "y": 626.703125,
+          "right": 776.5625,
+          "bottom": 642.703125
+        },
+        {
+          "x": 776.5625,
+          "y": 626.703125,
+          "right": 776.5625,
+          "bottom": 642.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 646.703125,
+          "right": 784.984375,
+          "bottom": 662.703125
+        },
+        {
+          "x": 784.984375,
+          "y": 646.703125,
+          "right": 793.421875,
+          "bottom": 662.703125
+        },
+        {
+          "x": 793.421875,
+          "y": 646.703125,
+          "right": 793.421875,
+          "bottom": 662.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 666.703125,
+          "right": 801.84375,
+          "bottom": 682.703125
+        },
+        {
+          "x": 801.84375,
+          "y": 666.703125,
+          "right": 894.5625,
+          "bottom": 682.703125
+        },
+        {
+          "x": 894.5625,
+          "y": 666.703125,
+          "right": 894.5625,
+          "bottom": 682.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 686.703125,
+          "right": 801.84375,
+          "bottom": 702.703125
+        },
+        {
+          "x": 801.84375,
+          "y": 686.703125,
+          "right": 860.859375,
+          "bottom": 702.703125
+        },
+        {
+          "x": 860.859375,
+          "y": 686.703125,
+          "right": 869.296875,
+          "bottom": 702.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 706.703125,
+          "right": 919.84375,
+          "bottom": 722.703125
+        },
+        {
+          "x": 919.84375,
+          "y": 706.703125,
+          "right": 919.84375,
+          "bottom": 722.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 726.703125,
+          "right": 784.984375,
+          "bottom": 742.703125
+        },
+        {
+          "x": 784.984375,
+          "y": 726.703125,
+          "right": 793.421875,
+          "bottom": 742.703125
+        },
+        {
+          "x": 793.421875,
+          "y": 726.703125,
+          "right": 793.421875,
+          "bottom": 742.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 746.703125,
+          "right": 768.125,
+          "bottom": 762.703125
+        },
+        {
+          "x": 768.125,
+          "y": 746.703125,
+          "right": 776.5625,
+          "bottom": 762.703125
+        },
+        {
+          "x": 776.5625,
+          "y": 746.703125,
+          "right": 776.5625,
+          "bottom": 762.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 766.703125,
+          "right": 751.265625,
+          "bottom": 782.703125
+        },
+        {
+          "x": 751.265625,
+          "y": 766.703125,
+          "right": 759.703125,
+          "bottom": 782.703125
+        },
+        {
+          "x": 759.703125,
+          "y": 766.703125,
+          "right": 759.703125,
+          "bottom": 782.703125
+        },
+        {
+          "x": 734.40625,
+          "y": 786.703125,
+          "right": 742.84375,
+          "bottom": 802.703125
+        }
+      ]
+    },
+    "value": "{\n  \"payload\": {\n    \"checks\": [\n      \"cited\",\n      \"complete\"\n    ],\n    \"score\": \"1\"\n  },\n  \"batches\": [\n    [\n      {\n        \"ok\": true,\n        \"path\": \"C:\\\\guide\\n\\\"cited\\\"\"\n      }\n    ]\n  ]\n}",
+    "rendering": "compact PrettyTextCell"
+  },
+  {
+    "phase": "after",
+    "theme": "dark",
+    "name": "table-plain",
+    "sha": "7b53c86a2f2b80f124e49a433f3cb23a31d50c68",
+    "url": "http://localhost:6031/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--dark theme",
+    "scripts": [
+      "http://localhost:6031/assets/index-CmjJGgrs.js"
+    ],
+    "focused": "name",
+    "context": "real seeded span annotation table",
+    "geometry": {
+      "cell": {
+        "x": 718.40625,
+        "y": 367.515625,
+        "width": 320,
+        "height": 97
+      },
+      "tableWidth": 1620,
+      "scrollLeft": 404,
+      "scrollTop": 0,
+      "rows": "expanded",
+      "nameSort": "descending",
+      "pinnedAction": {
+        "x": 1363,
+        "width": 60
+      },
+      "content": {
+        "width": 288,
+        "scrollWidth": 288,
+        "height": 80,
+        "scrollHeight": 80
+      },
+      "lineRects": [
+        {
+          "x": 734.40625,
+          "y": 377.515625,
+          "right": 981.109375,
+          "bottom": 393.515625
+        },
+        {
+          "x": 981.109375,
+          "y": 377.515625,
+          "right": 985,
+          "bottom": 393.515625
+        },
+        {
+          "x": 734.40625,
+          "y": 397.515625,
+          "right": 799.78125,
+          "bottom": 413.515625
+        },
+        {
+          "x": 799.78125,
+          "y": 397.515625,
+          "right": 799.78125,
+          "bottom": 413.515625
+        },
+        {
+          "x": 734.40625,
+          "y": 417.515625,
+          "right": 995.125,
+          "bottom": 433.515625
+        },
+        {
+          "x": 995.125,
+          "y": 417.515625,
+          "right": 999.015625,
+          "bottom": 433.515625
+        },
+        {
+          "x": 734.40625,
+          "y": 437.515625,
+          "right": 804.453125,
+          "bottom": 453.515625
+        }
+      ]
+    },
+    "value": "The answer is grounded in the retrieved document.\nSecond line: the cited source supports the conclusion.",
+    "rendering": "compact PrettyTextCell"
+  },
+  {
+    "phase": "after",
+    "theme": "dark",
+    "name": "table-malformed",
+    "sha": "7b53c86a2f2b80f124e49a433f3cb23a31d50c68",
+    "url": "http://localhost:6031/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--dark theme",
+    "scripts": [
+      "http://localhost:6031/assets/index-CmjJGgrs.js"
+    ],
+    "focused": "name",
+    "context": "real seeded span annotation table",
+    "geometry": {
+      "cell": {
+        "x": 718.40625,
+        "y": 1641.515625,
+        "width": 320,
+        "height": 49.1875
+      },
+      "tableWidth": 1620,
+      "scrollLeft": 404,
+      "scrollTop": 0,
+      "rows": "expanded",
+      "nameSort": "descending",
+      "pinnedAction": {
+        "x": 1363,
+        "width": 60
+      },
+      "content": {
+        "width": 288,
+        "scrollWidth": 288,
+        "height": 20,
+        "scrollHeight": 20
+      },
+      "lineRects": [
+        {
+          "x": 734.40625,
+          "y": 1651.515625,
+          "right": 940.09375,
+          "bottom": 1667.515625
+        }
+      ]
+    },
+    "value": "{\"verdict\": \"incomplete\", \"reason\":",
+    "rendering": "compact PrettyTextCell"
+  },
+  {
+    "phase": "after",
+    "theme": "dark",
+    "name": "table-collapsed",
+    "sha": "7b53c86a2f2b80f124e49a433f3cb23a31d50c68",
+    "url": "http://localhost:6031/projects/UHJvamVjdDoy/spans/10969000000000000000000000000001?selectedSpanNodeId=U3Bhbjox&timeRangeKey=7d",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--dark theme",
+    "scripts": [
+      "http://localhost:6031/assets/index-CmjJGgrs.js"
+    ],
+    "focused": "Wrap each row over as many lines as it needs",
+    "context": "same 320px resized table, name descending, collapsed rows",
+    "scrollLeft": 404
+  },
+  {
+    "phase": "after",
+    "theme": "dark",
+    "name": "annotation-json",
+    "sha": "7b53c86a2f2b80f124e49a433f3cb23a31d50c68",
+    "url": "http://localhost:6031/datasets/RGF0YXNldDox/examples/RGF0YXNldEV4YW1wbGU6MQ%3D%3D",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--dark theme",
+    "scripts": [
+      "http://localhost:6031/assets/index-CmjJGgrs.js"
+    ],
+    "focused": "JSON0.98",
+    "context": "real seeded dataset example evaluation tooltip",
+    "exampleId": "RGF0YXNldEV4YW1wbGU6MQ==",
+    "trigger": {
+      "x": 1236.265625,
+      "y": 778.4375,
+      "width": 155.71875,
+      "height": 30
+    },
+    "tooltip": {
+      "x": 892,
+      "y": 534,
+      "width": 334,
+      "height": 454
+    },
+    "placement": "left",
+    "value": "{\n  \"payload\": {\n    \"checks\": [\n      \"cited\",\n      \"complete\"\n    ],\n    \"score\": \"1\"\n  },\n  \"batches\": [\n    [\n      {\n        \"ok\": true,\n        \"path\": \"C:\\\\guide\\n\\\"cited\\\"\"\n      }\n    ]\n  ]\n}",
+    "rendering": "compact PrettyText"
+  },
+  {
+    "phase": "after",
+    "theme": "dark",
+    "name": "annotation-plain",
+    "sha": "7b53c86a2f2b80f124e49a433f3cb23a31d50c68",
+    "url": "http://localhost:6031/datasets/RGF0YXNldDox/examples/RGF0YXNldEV4YW1wbGU6Mg%3D%3D",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--dark theme",
+    "scripts": [
+      "http://localhost:6031/assets/index-CmjJGgrs.js"
+    ],
+    "focused": "Plain text0.98",
+    "context": "real seeded dataset example evaluation tooltip",
+    "exampleId": "RGF0YXNldEV4YW1wbGU6Mg==",
+    "trigger": {
+      "x": 1236.265625,
+      "y": 774.296875,
+      "width": 155.71875,
+      "height": 30
+    },
+    "tooltip": {
+      "x": 892,
+      "y": 672.296875,
+      "width": 334,
+      "height": 234
+    },
+    "placement": "left",
+    "value": "The answer is grounded in the retrieved document.\nSecond line: the cited source supports the conclusion.",
+    "rendering": "compact PrettyText"
+  },
+  {
+    "phase": "after",
+    "theme": "dark",
+    "name": "annotation-malformed",
+    "sha": "7b53c86a2f2b80f124e49a433f3cb23a31d50c68",
+    "url": "http://localhost:6031/datasets/RGF0YXNldDox/examples/RGF0YXNldEV4YW1wbGU6Mw%3D%3D",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "dpr": 1,
+    "zoom": 1,
+    "bodyTheme": "theme--dark theme",
+    "scripts": [
+      "http://localhost:6031/assets/index-CmjJGgrs.js"
+    ],
+    "focused": "Malformed JSON0.98",
+    "context": "real seeded dataset example evaluation tooltip",
+    "exampleId": "RGF0YXNldEV4YW1wbGU6Mw==",
+    "trigger": {
+      "x": 1123.484375,
+      "y": 769.296875,
+      "width": 162,
+      "height": 30
+    },
+    "tooltip": {
+      "x": 873.3125,
+      "y": 697.296875,
+      "width": 239.6875,
+      "height": 174
+    },
+    "placement": "left",
+    "value": "{\"verdict\": \"incomplete\", \"reason\":",
+    "rendering": "compact PrettyText"
+  }
+]

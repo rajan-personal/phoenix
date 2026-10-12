@@ -1,0 +1,38 @@
+{
+  "head": "7b53c86a2f2b80f124e49a433f3cb23a31d50c68",
+  "parent": "0f690f0de444d9398a87abcb085515dc84484a6d",
+  "base": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+  "clean": true,
+  "identity": "rajan-personal <39906424+rajan-personal@users.noreply.github.com> | rajan-personal <39906424+rajan-personal@users.noreply.github.com>",
+  "paths": {
+    "js/app/src/components/utility/PrettyText.tsx": "d87b5b585d35c1db0b5a8555eec25f3c119bbf93ddbcbbd0d0abba712d8e8271",
+    "js/app/src/components/utility/__tests__/PrettyText.test.tsx": "7a364769c1e8dd4797afaf1aab8a771cd0dddd6dda2f611fa84140ea94fe40e2",
+    "js/app/src/utils/__tests__/getJSONDisplayPreview.test.ts": "7fa530259fd9f0975f48acd24e104a04ce6186da12cb68359326dfa705c9fb02",
+    "js/app/src/utils/getJSONDisplayPreview.ts": "d4c3c7b993f548432322ab2f55a57f0b053566c2b39cb9282ab52f1a414d24f4",
+    "js/app/src/utils/hasLosslessJSONNumbers.ts": "712b451b2e9eaea404341f7d4fb9a8ca9582a3ffed1405a08f1b94cec7178f24"
+  },
+  "playground_base_diff_empty": true,
+  "shared_hook_and_jsonUtils_unchanged": true,
+  "remaining_rollout_paths_unchanged_from_parent": {
+    "js/app/src/components/annotation/AnnotationDetailsContent.tsx": "a3f21e0e44f61068e1b2f769135628a09ecaa25660327d8d276a93be4b3180f5",
+    "js/app/src/components/annotation/AnnotationTooltip.tsx": "e32961a396b5f1d7d027d3312987c4c16c6ed18edeee45d54369ac9292df74e1",
+    "js/app/src/components/annotation/__tests__/AnnotationDetailsContent.test.tsx": "b9ae5d06a3b514f5490521aacdd82414665550d596dd349415cfccf36deaf1af",
+    "js/app/src/components/table/TextCell.tsx": "7b49a8cfd41a0e61ea16687b683f5e35cc3af16636eb8e78b70a07990849b846",
+    "js/app/src/components/table/__tests__/PrettyTextCell.test.tsx": "b673beeca06b8cb4822addcddec2c53ac961f88636b743657b77db69af3604d3",
+    "js/app/src/pages/trace/DocumentAnnotationItem.tsx": "273bd5a19da7b4dfdcd8de0158cdda4bc8e95c65e19319345529f992c6a27c85",
+    "js/app/src/pages/trace/SpanAnnotationsTable.tsx": "b59d19675c257df63ec3987a56626dd1a70982e3e61155f3efd577b5241d2370",
+    "js/app/src/pages/trace/__tests__/DocumentAnnotationItem.test.tsx": "854c818a708198c7ab986847b18b41203aa42d20baaf02e9bfb3d6a6e31f9d99",
+    "js/app/src/pages/trace/__tests__/DocumentItem.test.tsx": "7c34b09d30337b71f74de37a0fc921af4ce5d2ac4ad20897dfd238f0a0104a58",
+    "js/app/src/pages/trace/__tests__/SpanAnnotationsTable.test.tsx": "3f0d79dd560a56679c965de1233eb34f3080d83975509433c99a647c579f8984"
+  },
+  "committed_content_matches_disk": true,
+  "commit_changed_paths": [
+    "js/app/src/components/utility/PrettyText.tsx",
+    "js/app/src/components/utility/__tests__/PrettyText.test.tsx",
+    "js/app/src/utils/__tests__/getJSONDisplayPreview.test.ts",
+    "js/app/src/utils/getJSONDisplayPreview.ts",
+    "js/app/src/utils/hasLosslessJSONNumbers.ts"
+  ],
+  "final_status": "",
+  "base_to_head_playground_diff": ""
+}

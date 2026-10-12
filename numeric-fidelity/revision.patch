@@ -1,0 +1,606 @@
+diff --git a/js/app/src/components/utility/PrettyText.tsx b/js/app/src/components/utility/PrettyText.tsx
+index b38bcd801..18bd07795 100644
+--- a/js/app/src/components/utility/PrettyText.tsx
++++ b/js/app/src/components/utility/PrettyText.tsx
+@@ -28,45 +28,54 @@ export function PrettyText({
+   preCSS,
+   variant = "code",
+ }: PrettyTextProps) {
+-  const { text, textType } = usePrettyText(children);
++  return variant === "compact" ? (
++    <CompactPrettyText>{children}</CompactPrettyText>
++  ) : (
++    <CodePrettyText preCSS={preCSS}>{children}</CodePrettyText>
++  );
++}
++
++function CompactPrettyText({ children }: { children: string }) {
+   const preview = useMemo(
+-    () =>
+-      variant === "compact" && textType === "json"
+-        ? getJSONDisplayPreview({ text })
+-        : { text, hasDecodedStrings: false },
+-    [variant, text, textType]
++    () => getJSONDisplayPreview({ text: children }),
++    [children]
+   );
+-  if (variant === "compact") {
+-    return (
+-      <>
+-        {preview.hasDecodedStrings ? (
+-          <Text
+-            className="pretty-text__preview-label"
+-            size="XS"
+-            color="inherit"
+-            css={css`
+-              display: block;
+-              padding-bottom: var(--global-dimension-size-50);
+-            `}
+-          >
+-            JSON preview · encoded strings decoded
+-          </Text>
+-        ) : null}
++  return (
++    <>
++      {preview.hasDecodedStrings ? (
+         <Text
+-          className="pretty-text pretty-text--compact"
++          className="pretty-text__preview-label"
++          size="XS"
+           color="inherit"
+-          fontFamily={textType === "json" ? "mono" : "default"}
+           css={css`
+             display: block;
+-            white-space: pre-wrap;
+-            overflow-wrap: anywhere;
++            padding-bottom: var(--global-dimension-size-50);
+           `}
+         >
+-          {preview.text}
++          JSON preview · encoded strings decoded
+         </Text>
+-      </>
+-    );
+-  }
++      ) : null}
++      <Text
++        className="pretty-text pretty-text--compact"
++        color="inherit"
++        fontFamily={preview.textType === "json" ? "mono" : "default"}
++        css={css`
++          display: block;
++          white-space: pre-wrap;
++          overflow-wrap: anywhere;
++        `}
++      >
++        {preview.text}
++      </Text>
++    </>
++  );
++}
++
++function CodePrettyText({
++  children,
++  preCSS,
++}: Omit<PrettyTextProps, "variant">) {
++  const { text, textType } = usePrettyText(children);
+   if (textType === "string") {
+     return (
+       <pre
+diff --git a/js/app/src/components/utility/__tests__/PrettyText.test.tsx b/js/app/src/components/utility/__tests__/PrettyText.test.tsx
+index e2e8de509..15afac631 100644
+--- a/js/app/src/components/utility/__tests__/PrettyText.test.tsx
++++ b/js/app/src/components/utility/__tests__/PrettyText.test.tsx
+@@ -136,14 +136,14 @@ describe("PrettyText compact presentation", () => {
+       JSON.stringify({ payload }, null, 2)
+     );
+   });
+-  it("shows the full formatted source without a label on budget fallback", async () => {
++  it("shows the full original source without a label on budget fallback", async () => {
+     const source = {
+       early: "{}",
+       values: Array.from({ length: 101 }, () => "{broken"),
+     };
+     await renderText({ text: JSON.stringify(source) });
+     expect(container.querySelector(".pretty-text")?.textContent).toBe(
+-      JSON.stringify(source, null, 2)
++      JSON.stringify(source)
+     );
+     expect(container.querySelector(".pretty-text__preview-label")).toBeNull();
+   });
+@@ -177,4 +177,48 @@ describe("PrettyText compact presentation", () => {
+       container.querySelector(".pretty-text__preview-label")
+     ).not.toBeNull();
+   });
++  it.each([
++    "9007199254740993",
++    "1e400",
++    "1e-400",
++    "0.123456789012345678901",
++    "-0",
++  ])("never rounds raw compact number %s, native or encoded", async (token) => {
++    const inner = `{ "value": ${token} }`;
++    for (const text of [` ${inner}\n`, JSON.stringify({ payload: inner })]) {
++      await renderText({ text });
++      expect(container.querySelector(".pretty-text")?.textContent).toBe(text);
++      expect(
++        container.querySelector(".pretty-text")?.classList.contains("font-mono")
++      ).toBe(true);
++      expect(container.querySelector(".pretty-text__preview-label")).toBeNull();
++    }
++  });
++  it("memoizes by raw source, not the rounded output of the shared formatter", async () => {
++    const first = '{"id":9007199254740993}';
++    const second = ' {"id":9007199254740992.1}  ';
++    await renderText({ text: first });
++    expect(container.querySelector(".pretty-text")?.textContent).toBe(first);
++    await renderText({ text: second });
++    expect(container.querySelector(".pretty-text")?.textContent).toBe(second);
++    await renderText({ text: '{"id":1e3}' });
++    expect(container.querySelector(".pretty-text")?.textContent).toBe(
++      '{\n  "id": 1000\n}'
++    );
++  });
++  it("does not pass oversized compact source to the shared parser", async () => {
++    const text = "9".repeat(100_001);
++    const parse = vi.spyOn(JSON, "parse");
++    await renderText({ text });
++    expect(container.querySelector(".pretty-text")?.textContent).toBe(text);
++    expect(parse).not.toHaveBeenCalled();
++    expect(container.querySelector(".pretty-text__preview-label")).toBeNull();
++  });
++  it("leaves the default caller's existing number formatting policy unchanged", async () => {
++    await renderText({ text: '{"id":9007199254740993}', variant: "code" });
++    expect(container.querySelector(".cm-content")?.textContent).toContain(
++      '"id": 9007199254740992'
++    );
++    expect(container.querySelector(".pretty-text__preview-label")).toBeNull();
++  });
+ });
+diff --git a/js/app/src/utils/__tests__/getJSONDisplayPreview.test.ts b/js/app/src/utils/__tests__/getJSONDisplayPreview.test.ts
+index 7aecf82b1..1c921c7f1 100644
+--- a/js/app/src/utils/__tests__/getJSONDisplayPreview.test.ts
++++ b/js/app/src/utils/__tests__/getJSONDisplayPreview.test.ts
+@@ -26,6 +26,7 @@ describe("getJSONDisplayPreview", () => {
+         native: [[1, { note: "kept" }]],
+       }),
+       hasDecodedStrings: true,
++      textType: "json",
+     });
+     expect(typeof source.payload).toBe("string");
+     expect(typeof source.native[0]).toBe("string");
+@@ -39,10 +40,12 @@ describe("getJSONDisplayPreview", () => {
+     ).toEqual({
+       text: format({ payload: { items: [1, 2], empty: {} } }),
+       hasDecodedStrings: true,
++      textType: "json",
+     });
+     expect(getJSONDisplayPreview({ text: format(encoded) })).toEqual({
+       text: format({ items: [1, 2], empty: {} }),
+       hasDecodedStrings: true,
++      textType: "json",
+     });
+   });
+ 
+@@ -60,6 +63,7 @@ describe("getJSONDisplayPreview", () => {
+     ).toEqual({
+       text: format({ payload: decoded }),
+       hasDecodedStrings: true,
++      textType: "json",
+     });
+   });
+ 
+@@ -90,6 +94,7 @@ describe("getJSONDisplayPreview", () => {
+         decoded: { values: strings },
+       }),
+       hasDecodedStrings: true,
++      textType: "json",
+     });
+   });
+ 
+@@ -112,6 +117,7 @@ describe("getJSONDisplayPreview", () => {
+     expect(getJSONDisplayPreview({ text })).toEqual({
+       text,
+       hasDecodedStrings: false,
++      textType: "json",
+     });
+   });
+   it.each(["", "text", '{"broken":', '["unterminated'])(
+@@ -120,6 +126,7 @@ describe("getJSONDisplayPreview", () => {
+       expect(getJSONDisplayPreview({ text })).toEqual({
+         text,
+         hasDecodedStrings: false,
++        textType: "string",
+       });
+     }
+   );
+@@ -127,6 +134,7 @@ describe("getJSONDisplayPreview", () => {
+     expect(getJSONDisplayPreview({ text: format(["{}", "[]"]) })).toEqual({
+       text: format([{}, []]),
+       hasDecodedStrings: true,
++      textType: "json",
+     });
+   });
+   it("treats prototype keys as ordinary own data, without mutating prototypes", () => {
+@@ -151,6 +159,7 @@ describe("getJSONDisplayPreview", () => {
+     expect(getJSONDisplayPreview({ text, maxDepth: 2 })).toEqual({
+       text,
+       hasDecodedStrings: false,
++      textType: "json",
+     });
+   });
+   it("counts repeated encoding layers toward the same depth bound", () => {
+@@ -161,6 +170,7 @@ describe("getJSONDisplayPreview", () => {
+     expect(getJSONDisplayPreview({ text, maxDepth: 2 })).toEqual({
+       text,
+       hasDecodedStrings: false,
++      textType: "json",
+     });
+   });
+   it("limits total visited nodes across branches, not just each container", () => {
+@@ -168,6 +178,7 @@ describe("getJSONDisplayPreview", () => {
+     expect(getJSONDisplayPreview({ text, maxNodes: 8 })).toEqual({
+       text,
+       hasDecodedStrings: false,
++      textType: "json",
+     });
+   });
+   it("limits all parse attempts including malformed candidates", () => {
+@@ -179,6 +190,7 @@ describe("getJSONDisplayPreview", () => {
+     expect(getJSONDisplayPreview({ text, maxParseAttempts: 3 })).toEqual({
+       text,
+       hasDecodedStrings: false,
++      textType: "json",
+     });
+     expect(parse).toHaveBeenCalledTimes(3);
+   });
+@@ -187,14 +199,14 @@ describe("getJSONDisplayPreview", () => {
+     const parse = vi.spyOn(JSON, "parse");
+     expect(
+       getJSONDisplayPreview({ text, maxCharacters: text.length - 1 })
+-    ).toEqual({ text, hasDecodedStrings: false });
++    ).toEqual({ text, hasDecodedStrings: false, textType: "string" });
+     expect(parse).not.toHaveBeenCalled();
+   });
+   it("limits cumulative parse characters rather than each string alone", () => {
+     const text = format(["{}", "[]"]);
+     expect(
+       getJSONDisplayPreview({ text, maxCharacters: text.length + 2 })
+-    ).toEqual({ text, hasDecodedStrings: false });
++    ).toEqual({ text, hasDecodedStrings: false, textType: "json" });
+   });
+   it("discards an oversized formatted preview without truncating the source", () => {
+     const text = JSON.stringify({
+@@ -207,6 +219,162 @@ describe("getJSONDisplayPreview", () => {
+     expect(getJSONDisplayPreview({ text, maxCharacters: parseSize })).toEqual({
+       text,
+       hasDecodedStrings: false,
++      textType: "json",
++    });
++  });
++  // RAW numeric tokens: constructing JS number fixtures would round them before
++  // the production parser sees them. Expectations deliberately keep the literals.
++  it.each([
++    "9007199254740993",
++    "-9007199254740993",
++    "1e400",
++    "-1e400",
++    "1e-400",
++    "-1e-400",
++    "0.12345678901234567890123456789",
++    "1.0000000000000001",
++    "0.100000000000000005",
++    "9007199254740992.1",
++    "1000000000000000000001",
++    "-0",
++    "-0.0",
++    "-0e3",
++  ])(
++    "keeps the complete original source for unsafe numeric token %s",
++    (token) => {
++      const inner = `{"value":${token}}`;
++      const sources = [
++        ` \t${token}\n`,
++        `  ${inner}  `,
++        JSON.stringify({ early: '{"safe":[1,2]}', payload: inner }),
++        JSON.stringify([JSON.stringify(JSON.stringify(inner))]),
++      ];
++      for (const text of sources) {
++        expect(getJSONDisplayPreview({ text })).toEqual({
++          text,
++          hasDecodedStrings: false,
++          textType: "json",
++        });
++      }
++    }
++  );
++  it.each([
++    ["1.0", "1"],
++    ["1e3", "1000"],
++    ["1E+03", "1000"],
++    ["0.1", "0.1"],
++    ["1.2300", "1.23"],
++    ["100.00e-2", "1"],
++    ["-12.5e+2", "-1250"],
++    ["5e-324", "5e-324"],
++    ["1e-323", "1e-323"],
++    ["1.7976931348623157e308", "1.7976931348623157e+308"],
++    ["1000000000000000000000", "1e+21"],
++    ["9007199254740992", "9007199254740992"],
++    ["0e99999999999999999999", "0"],
++  ])("formats equivalent safe decimal %s as %s", (token, expected) => {
++    const text = `{ "value": ${token} }`;
++    expect(getJSONDisplayPreview({ text })).toEqual({
++      text: `{\n  "value": ${expected}\n}`,
++      hasDecodedStrings: false,
++      textType: "json",
++    });
++    expect(
++      getJSONDisplayPreview({ text: JSON.stringify({ payload: text }) })
++    ).toEqual({
++      text: `{\n  "payload": {\n    "value": ${expected}\n  }\n}`,
++      hasDecodedStrings: true,
++      textType: "json",
++    });
++  });
++  it("ignores numerical text in keys/strings, including escapes and Unicode", () => {
++    const strings = [
++      "9007199254740993",
++      "1e400",
++      "1e-400",
++      "-0",
++      '"1e400"',
++      'C:\\guide\n"9007199254740993"',
++      "☃ 1e400",
++    ];
++    const source = Object.fromEntries([
++      ["1e400", strings],
++      ['escaped"-0', strings],
++      ["__proto__", JSON.stringify({ strings, safe: 0.1 })],
++    ]);
++    const text = JSON.stringify(source);
++    expect(getJSONDisplayPreview({ text })).toEqual({
++      text: format(
++        Object.fromEntries([
++          ["1e400", strings],
++          ['escaped"-0', strings],
++          ["__proto__", { strings, safe: 0.1 }],
++        ])
++      ),
++      hasDecodedStrings: true,
++      textType: "json",
++    });
++    expect(
++      getJSONDisplayPreview({ text: '{"\\u0031e400":"\\u0031e-400"}' })
++    ).toEqual({
++      text: '{\n  "1e400": "1e-400"\n}',
++      hasDecodedStrings: false,
++      textType: "json",
++    });
++    expect(Object.hasOwn(Object.prototype, "strings")).toBe(false);
++    expect(JSON.stringify(source)).toBe(text);
++  });
++  it.each(['{"value":01}', "[1e]", '{"value":1.}', "1e400oops"])(
++    "validates malformed numeric JSON before scanning: %s",
++    (text) => {
++      expect(getJSONDisplayPreview({ text })).toEqual({
++        text,
++        hasDecodedStrings: false,
++        textType: "string",
++      });
++    }
++  );
++  it("handles long significands/exponents with bounded work and exact comparison", () => {
++    const equivalent = `1${"0".repeat(2000)}e-2000`;
++    expect(getJSONDisplayPreview({ text: equivalent })).toEqual({
++      text: "1",
++      hasDecodedStrings: false,
++      textType: "json",
++    });
++    const precise = `1.${"0".repeat(2000)}1`;
++    expect(getJSONDisplayPreview({ text: precise })).toEqual({
++      text: precise,
++      hasDecodedStrings: false,
++      textType: "json",
++    });
++    const oversized = "9".repeat(100_001);
++    const parse = vi.spyOn(JSON, "parse");
++    expect(getJSONDisplayPreview({ text: oversized })).toEqual({
++      text: oversized,
++      hasDecodedStrings: false,
++      textType: "string",
++    });
++    expect(parse).not.toHaveBeenCalled();
++  });
++  it("applies budgets before outer formatting and falls back atomically to raw text", () => {
++    const deep = "[".repeat(25) + "1" + "]".repeat(25);
++    expect(getJSONDisplayPreview({ text: deep })).toEqual({
++      text: deep,
++      hasDecodedStrings: false,
++      textType: "json",
++    });
++    const text = '{"values":[0,1,2]}';
++    expect(getJSONDisplayPreview({ text, maxCharacters: text.length })).toEqual(
++      { text, hasDecodedStrings: false, textType: "json" }
++    );
++    const mixed = JSON.stringify({
++      safe: '{"ok":true}',
++      values: ['{"id":9007199254740993}'],
++    });
++    expect(getJSONDisplayPreview({ text: mixed })).toEqual({
++      text: mixed,
++      hasDecodedStrings: false,
++      textType: "json",
+     });
+   });
+ });
+diff --git a/js/app/src/utils/getJSONDisplayPreview.ts b/js/app/src/utils/getJSONDisplayPreview.ts
+index e68f725a8..7f03dcb31 100644
+--- a/js/app/src/utils/getJSONDisplayPreview.ts
++++ b/js/app/src/utils/getJSONDisplayPreview.ts
+@@ -1,3 +1,4 @@
++import { hasLosslessJSONNumbers } from "./hasLosslessJSONNumbers";
+ import { safelyParseJSON } from "./jsonUtils";
+ 
+ const DEFAULT_MAX_DEPTH = 20;
+@@ -11,8 +12,10 @@ const DEFAULT_MAX_CHARACTERS = 100_000;
+  * encoding layers. Scalar-looking strings and quoted prose stay strings.
+  *
+  * Work is bounded across the whole preview, not per branch. If any limit is
+- * reached, discard the entire preview and return the full supplied text.
+- * @param params.text - Source JSON text (normally already formatted by usePrettyText).
++ * reached or a number cannot round-trip without changing its decimal value,
++ * discard the entire preview and return the full ORIGINAL source. Validation
++ * and numeric checks precede all formatting, including the outer JSON value.
++ * @param params.text - Original source, before any JSON parse/stringify formatting.
+  * @param params.maxDepth - Combined container nesting and decoding-layer limit.
+  * @param params.maxNodes - Maximum total visited values.
+  * @param params.maxParseAttempts - Maximum total parse attempts, including the root.
+@@ -30,9 +33,9 @@ export function getJSONDisplayPreview({
+   maxNodes?: number;
+   maxParseAttempts?: number;
+   maxCharacters?: number;
+-}): { text: string; hasDecodedStrings: boolean } {
+-  const fallback = { text, hasDecodedStrings: false };
++}): { text: string; hasDecodedStrings: boolean; textType: "string" | "json" } {
+   let hasReachedLimit = false;
++  let hasUnsafeNumbers = false;
+   let hasDecodedStrings = false;
+   let visitedNodes = 0;
+   let parseAttempts = 0;
+@@ -46,11 +49,13 @@ export function getJSONDisplayPreview({
+       return undefined;
+     }
+     const result = safelyParseJSON(candidate);
+-    return result.parseError ? undefined : result.json;
++    if (result.parseError) return undefined;
++    if (!hasLosslessJSONNumbers(candidate)) hasUnsafeNumbers = true;
++    return result.json;
+   }
+ 
+   function visit({ value, depth }: { value: unknown; depth: number }): unknown {
+-    if (hasReachedLimit) return value;
++    if (hasReachedLimit || hasUnsafeNumbers) return value;
+     visitedNodes += 1;
+     if (depth > maxDepth || visitedNodes > maxNodes) {
+       hasReachedLimit = true;
+@@ -74,7 +79,7 @@ export function getJSONDisplayPreview({
+           return value;
+         }
+         candidate = parseCandidate(candidate);
+-        if (hasReachedLimit) return value;
++        if (hasReachedLimit || hasUnsafeNumbers) return value;
+         if (typeof candidate === "object" && candidate !== null) {
+           hasDecodedStrings = true;
+           return visit({ value: candidate, depth: decodingDepth });
+@@ -109,11 +114,19 @@ export function getJSONDisplayPreview({
+   }
+ 
+   const value = parseCandidate(text);
+-  if (value === undefined || hasReachedLimit) return fallback;
++  if (value === undefined) {
++    // Oversized/unparsed input remains verbatim; do not guess JSON validity.
++    return { text, hasDecodedStrings: false, textType: "string" };
++  }
++  const fallback = {
++    text,
++    hasDecodedStrings: false,
++    textType: "json" as const,
++  };
+   const preview = visit({ value, depth: 0 });
+-  if (hasReachedLimit || !hasDecodedStrings) return fallback;
++  if (hasReachedLimit || hasUnsafeNumbers) return fallback;
+   const previewText = JSON.stringify(preview, null, 2);
+   return previewText.length > maxCharacters
+     ? fallback
+-    : { text: previewText, hasDecodedStrings: true };
++    : { text: previewText, hasDecodedStrings, textType: "json" };
+ }
+diff --git a/js/app/src/utils/hasLosslessJSONNumbers.ts b/js/app/src/utils/hasLosslessJSONNumbers.ts
+new file mode 100644
+index 000000000..bb8edccf5
+--- /dev/null
++++ b/js/app/src/utils/hasLosslessJSONNumbers.ts
+@@ -0,0 +1,82 @@
++/**
++ * A lexical guard, not a JSON parser: call only after JSON validation. Strings
++ * (including quoted keys and escaped quotes) are skipped. Each number must have
++ * the same mathematical decimal value as its JavaScript display representation.
++ * Work is linear in the validated text length; no big integers or exponent-sized
++ * strings are constructed. The caller bounds the total scanned input.
++ */
++export function hasLosslessJSONNumbers(text: string): boolean {
++  let index = 0;
++  while (index < text.length) {
++    const character = text[index];
++    if (character === '"') {
++      index += 1;
++      while (index < text.length) {
++        if (text[index] === "\\") {
++          index += 2;
++        } else if (text[index++] === '"') {
++          break;
++        }
++      }
++    } else if (character === "-" || isDigit(character)) {
++      const start = index++;
++      while (index < text.length && isNumberCharacter(text[index])) index += 1;
++      const token = text.slice(start, index);
++      const value = Number(token);
++      if (!Number.isFinite(value) || Object.is(value, -0)) return false;
++      const decimal = normalizeDecimal(token);
++      if (
++        decimal === undefined ||
++        decimal !== normalizeDecimal(String(value))
++      ) {
++        return false;
++      }
++    } else {
++      index += 1;
++    }
++  }
++  return true;
++}
++
++function isDigit(character: string): boolean {
++  return character >= "0" && character <= "9";
++}
++
++function isNumberCharacter(character: string): boolean {
++  return (
++    isDigit(character) ||
++    character === "." ||
++    character === "e" ||
++    character === "E" ||
++    character === "+" ||
++    character === "-"
++  );
++}
++
++/** Canonical coefficient × 10^exponent, ignoring insignificant decimal zeros. */
++function normalizeDecimal(token: string): string | undefined {
++  const isNegative = token[0] === "-";
++  const exponentIndex = token.search(/[eE]/);
++  const coefficientEnd = exponentIndex < 0 ? token.length : exponentIndex;
++  const pointIndex = token.indexOf(".");
++  const fractionLength = pointIndex < 0 ? 0 : coefficientEnd - pointIndex - 1;
++  const digits = token
++    .slice(isNegative ? 1 : 0, coefficientEnd)
++    .replace(".", "");
++  let first = 0;
++  while (first < digits.length && digits[first] === "0") first += 1;
++  // Zero stays zero even with an arbitrarily long exponent. Negative zero has
++  // already been rejected by the caller before normalization.
++  if (first === digits.length) return "0";
++  let last = digits.length - 1;
++  while (digits[last] === "0") last -= 1;
++  const exponent =
++    (exponentIndex < 0 ? 0 : Number(token.slice(exponentIndex + 1))) -
++    fractionLength +
++    digits.length -
++    1 -
++    last;
++  // Conservative fallback for exponents whose arithmetic cannot be exact.
++  if (!Number.isSafeInteger(exponent)) return undefined;
++  return `${isNegative ? "-" : ""}${digits.slice(first, last + 1)}e${exponent}`;
++}

@@ -1,0 +1,6 @@
+ js/app/src/components/utility/PrettyText.tsx       |  69 +++++----
+ .../utility/__tests__/PrettyText.test.tsx          |  48 +++++-
+ .../utils/__tests__/getJSONDisplayPreview.test.ts  | 172 ++++++++++++++++++++-
+ js/app/src/utils/getJSONDisplayPreview.ts          |  33 ++--
+ js/app/src/utils/hasLosslessJSONNumbers.ts         |  82 ++++++++++
+ 5 files changed, 360 insertions(+), 44 deletions(-)

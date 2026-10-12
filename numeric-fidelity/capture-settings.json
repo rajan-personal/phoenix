@@ -1,0 +1,14 @@
+{
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "deviceScaleFactor": 1,
+  "locale": "en-US",
+  "timezoneId": "UTC",
+  "colorScheme": "light",
+  "fixedTime": "2026-10-12T09:45:00.000Z",
+  "tableTargetWidth": 320,
+  "tableScrollLeft": 404,
+  "tableRows": "expanded"
+}

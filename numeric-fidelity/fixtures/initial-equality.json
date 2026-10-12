@@ -1,0 +1,5 @@
+{
+  "fixtures/frozen.db": "d7eb4d3c7b75d7fc835041bcf0833586d4ba07ca0b1d352f942def7cc374343a",
+  "data-before/phoenix.db": "d7eb4d3c7b75d7fc835041bcf0833586d4ba07ca0b1d352f942def7cc374343a",
+  "data-after/phoenix.db": "d7eb4d3c7b75d7fc835041bcf0833586d4ba07ca0b1d352f942def7cc374343a"
+}
