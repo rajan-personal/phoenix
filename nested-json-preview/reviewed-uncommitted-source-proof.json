@@ -1,0 +1,25 @@
+{
+  "before": {
+    "tree": "/home/user/phoenix-nested-json-base",
+    "sha": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f"
+  },
+  "after": {
+    "tree": "/home/user/phoenix",
+    "base_sha": "7e6f20db14a054ca64410228b00efdf4509c4766",
+    "state": "uncommitted working-tree revision",
+    "patch_sha256": "6960b6a4c1f810f2f479063ac3caeca66a901f1eef2e6f115c192f80d78ed615",
+    "paths": {
+      "js/app/src/components/annotation/__tests__/AnnotationDetailsContent.test.tsx": "b9ae5d06a3b514f5490521aacdd82414665550d596dd349415cfccf36deaf1af",
+      "js/app/src/components/table/__tests__/PrettyTextCell.test.tsx": "b673beeca06b8cb4822addcddec2c53ac961f88636b743657b77db69af3604d3",
+      "js/app/src/components/utility/PrettyText.tsx": "d71376050da39fc8d188c857d63610e982eeeb541433e1c71abd338e9e9361ad",
+      "js/app/src/components/utility/__tests__/PrettyText.test.tsx": "068e5bbc5bf28f61b489232c9306ed458e11b7ba47989642bdb0266391d535cc",
+      "js/app/src/pages/playground/PlaygroundExperimentRunDetailsDialog.tsx": "9dd1e17346f2e6cb76cfb814dc081e24ad5303d7b96a041efffed65e488a4239",
+      "js/app/src/pages/playground/__tests__/PlaygroundExperimentRunDetailsDialog.test.tsx": "5036aa7ac080ce71e837fee03aaa332a684bc3c4915df8c6d90822cc5695df58",
+      "js/app/src/pages/trace/__tests__/DocumentAnnotationItem.test.tsx": "854c818a708198c7ab986847b18b41203aa42d20baaf02e9bfb3d6a6e31f9d99",
+      "js/app/src/pages/trace/__tests__/DocumentItem.test.tsx": "7c34b09d30337b71f74de37a0fc921af4ce5d2ac4ad20897dfd238f0a0104a58",
+      "js/app/src/utils/__tests__/getJSONDisplayPreview.test.ts": "dfb01362cf082332b76a607955000af8b921ce3b984b08456a10c02054063bbe",
+      "js/app/src/utils/getJSONDisplayPreview.ts": "5479fe1354dfa524eb0004ffb28e74dc10499bf22c6fddfdd7204d5b5b36764b"
+    },
+    "shared_default_helpers_unchanged": true
+  }
+}

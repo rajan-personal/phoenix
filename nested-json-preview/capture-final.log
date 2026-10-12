@@ -1,0 +1,27 @@
+after light document-json
+after light document-plain
+after light document-malformed
+after light table-json
+after light table-plain
+after light table-malformed
+after light table-collapsed
+after light annotation-json
+after light annotation-plain
+after light annotation-malformed
+after light dialog-harness-json
+after light dialog-harness-plain
+after light dialog-harness-malformed
+after dark document-json
+after dark document-plain
+after dark document-malformed
+after dark table-json
+after dark table-plain
+after dark table-malformed
+after dark table-collapsed
+after dark annotation-json
+after dark annotation-plain
+after dark annotation-malformed
+after dark dialog-harness-json
+after dark dialog-harness-plain
+after dark dialog-harness-malformed
+DONE 52 screenshots; all table pair geometry checks passed.

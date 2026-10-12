@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+const root='/home/user/phoenix-artifacts/nested-json-preview';fs.mkdirSync(root+'/fixtures',{recursive:true});
+const original=JSON.parse(fs.readFileSync('/home/user/phoenix-artifacts/no-pr-comparison/fixtures/seed-data.json'));
+const leaf={ok:true,path:'C:\\guide\n"cited"'};
+const payload={checks:['cited','complete'],score:'1'};
+const source={payload:JSON.stringify(payload),batches:[JSON.stringify([JSON.stringify(JSON.stringify(leaf))])]};
+const preview={payload,batches:[[leaf]]};
+original.cases.JSON=JSON.stringify(source);
+original.expectedPreview=JSON.stringify(preview,null,2);
+fs.writeFileSync(root+'/fixtures/seed-data.json',JSON.stringify(original,null,2));
+console.log('Generated valid encoded payload and multiply encoded object inside encoded nested arrays with JSON.stringify.');

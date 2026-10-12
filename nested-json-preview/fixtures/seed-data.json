@@ -1,0 +1,21 @@
+{
+  "span_id": "1096900000000001",
+  "trace_id": "10969000000000000000000000000001",
+  "cases": {
+    "JSON": "{\"payload\":\"{\\\"checks\\\":[\\\"cited\\\",\\\"complete\\\"],\\\"score\\\":\\\"1\\\"}\",\"batches\":[\"[\\\"\\\\\\\"{\\\\\\\\\\\\\\\"ok\\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\\"path\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"C:\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\guide\\\\\\\\\\\\\\\\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"cited\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"}\\\\\\\"\\\"]\"]}",
+    "Plain text": "The answer is grounded in the retrieved document.\nSecond line: the cited source supports the conclusion.",
+    "Malformed JSON": "{\"verdict\": \"incomplete\", \"reason\":",
+    "Empty": "",
+    "Overflow": "Long unbroken evidence: evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\n"
+  },
+  "dataset_id": "RGF0YXNldDox",
+  "experiment_id": "RXhwZXJpbWVudDox",
+  "runs": {
+    "JSON": "RXhwZXJpbWVudFJ1bjox",
+    "Plain text": "RXhwZXJpbWVudFJ1bjoy",
+    "Malformed JSON": "RXhwZXJpbWVudFJ1bjoz",
+    "Empty": "RXhwZXJpbWVudFJ1bjo0",
+    "Overflow": "RXhwZXJpbWVudFJ1bjo1"
+  },
+  "expectedPreview": "{\n  \"payload\": {\n    \"checks\": [\n      \"cited\",\n      \"complete\"\n    ],\n    \"score\": \"1\"\n  },\n  \"batches\": [\n    [\n      {\n        \"ok\": true,\n        \"path\": \"C:\\\\guide\\n\\\"cited\\\"\"\n      }\n    ]\n  ]\n}"
+}

@@ -1,0 +1,11 @@
+ .../__tests__/AnnotationDetailsContent.test.tsx    |  13 ++
+ .../table/__tests__/PrettyTextCell.test.tsx        |  17 ++
+ js/app/src/components/utility/PrettyText.tsx       |  48 +++--
+ .../utility/__tests__/PrettyText.test.tsx          | 110 +++++++++--
+ .../PlaygroundExperimentRunDetailsDialog.tsx       |   6 +-
+ .../PlaygroundExperimentRunDetailsDialog.test.tsx  |  25 ++-
+ .../__tests__/DocumentAnnotationItem.test.tsx      |  13 ++
+ .../pages/trace/__tests__/DocumentItem.test.tsx    |  75 ++++++++
+ .../utils/__tests__/getJSONDisplayPreview.test.ts  | 212 +++++++++++++++++++++
+ js/app/src/utils/getJSONDisplayPreview.ts          | 119 ++++++++++++
+ 10 files changed, 604 insertions(+), 34 deletions(-)

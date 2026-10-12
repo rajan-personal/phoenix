@@ -1,0 +1,775 @@
+diff --git a/js/app/src/components/annotation/__tests__/AnnotationDetailsContent.test.tsx b/js/app/src/components/annotation/__tests__/AnnotationDetailsContent.test.tsx
+index cbc19ba63..e9d727c1c 100644
+--- a/js/app/src/components/annotation/__tests__/AnnotationDetailsContent.test.tsx
++++ b/js/app/src/components/annotation/__tests__/AnnotationDetailsContent.test.tsx
+@@ -76,4 +76,17 @@ describe("AnnotationDetailsContent explanations", () => {
+     // focusable content that disappears as focus leaves its trigger.
+     expect(container.querySelector("[tabindex], [contenteditable]")).toBeNull();
+   });
++  it("uses the shared labeled preview for JSON-encoded explanation values", async () => {
++    const decoded = { reasons: ["grounded", "complete"], score: 1 };
++    await renderExplanation(
++      JSON.stringify({ payload: JSON.stringify(decoded) })
++    );
++    expect(container.querySelector(".pretty-text")?.textContent).toBe(
++      JSON.stringify({ payload: decoded }, null, 2)
++    );
++    expect(
++      container.querySelector(".pretty-text__preview-label")?.textContent
++    ).toBe("JSON preview · encoded strings decoded");
++    expect(container.querySelector("[tabindex], button")).toBeNull();
++  });
+ });
+diff --git a/js/app/src/components/table/__tests__/PrettyTextCell.test.tsx b/js/app/src/components/table/__tests__/PrettyTextCell.test.tsx
+index 996095cd5..e18f26d78 100644
+--- a/js/app/src/components/table/__tests__/PrettyTextCell.test.tsx
++++ b/js/app/src/components/table/__tests__/PrettyTextCell.test.tsx
+@@ -75,4 +75,21 @@ describe("PrettyTextCell", () => {
+     expect(container.querySelector(".cm-editor")).toBeNull();
+     expect(container.querySelector("pre")?.textContent).toBe(value);
+   });
++  it("shows the source string when collapsed and labeled nested preview when expanded", async () => {
++    const decoded = { reasons: ["supported", "complete"] };
++    const value = JSON.stringify({ payload: JSON.stringify(decoded) });
++    await renderValue(value, false);
++    expect(container.querySelector("td")?.textContent).toBe(value);
++    expect(container.querySelector(".pretty-text__preview-label")).toBeNull();
++    await renderValue(value, true);
++    expect(container.querySelector(".pretty-text")?.textContent).toBe(
++      JSON.stringify({ payload: decoded }, null, 2)
++    );
++    expect(
++      container.querySelector(".pretty-text__preview-label")
++    ).not.toBeNull();
++    await renderValue(value, false);
++    expect(container.querySelector("td")?.textContent).toBe(value);
++    expect(container.querySelector(".pretty-text__preview-label")).toBeNull();
++  });
+ });
+diff --git a/js/app/src/components/utility/PrettyText.tsx b/js/app/src/components/utility/PrettyText.tsx
+index cf56fdb5c..b38bcd801 100644
+--- a/js/app/src/components/utility/PrettyText.tsx
++++ b/js/app/src/components/utility/PrettyText.tsx
+@@ -1,10 +1,12 @@
+ import type { SerializedStyles } from "@emotion/react";
+ import { css } from "@emotion/react";
++import { useMemo } from "react";
+ 
+ import { JSONBlock } from "@phoenix/components/code/JSONBlock";
+ import { Text } from "@phoenix/components/core/content";
+ import { usePrettyText } from "@phoenix/hooks/usePrettyText";
+ import { assertUnreachable } from "@phoenix/typeUtils";
++import { getJSONDisplayPreview } from "@phoenix/utils/getJSONDisplayPreview";
+ 
+ type PrettyTextProps = {
+   children: string;
+@@ -27,20 +29,42 @@ export function PrettyText({
+   variant = "code",
+ }: PrettyTextProps) {
+   const { text, textType } = usePrettyText(children);
++  const preview = useMemo(
++    () =>
++      variant === "compact" && textType === "json"
++        ? getJSONDisplayPreview({ text })
++        : { text, hasDecodedStrings: false },
++    [variant, text, textType]
++  );
+   if (variant === "compact") {
+     return (
+-      <Text
+-        className="pretty-text pretty-text--compact"
+-        color="inherit"
+-        fontFamily={textType === "json" ? "mono" : "default"}
+-        css={css`
+-          display: block;
+-          white-space: pre-wrap;
+-          overflow-wrap: anywhere;
+-        `}
+-      >
+-        {text}
+-      </Text>
++      <>
++        {preview.hasDecodedStrings ? (
++          <Text
++            className="pretty-text__preview-label"
++            size="XS"
++            color="inherit"
++            css={css`
++              display: block;
++              padding-bottom: var(--global-dimension-size-50);
++            `}
++          >
++            JSON preview · encoded strings decoded
++          </Text>
++        ) : null}
++        <Text
++          className="pretty-text pretty-text--compact"
++          color="inherit"
++          fontFamily={textType === "json" ? "mono" : "default"}
++          css={css`
++            display: block;
++            white-space: pre-wrap;
++            overflow-wrap: anywhere;
++          `}
++        >
++          {preview.text}
++        </Text>
++      </>
+     );
+   }
+   if (textType === "string") {
+diff --git a/js/app/src/components/utility/__tests__/PrettyText.test.tsx b/js/app/src/components/utility/__tests__/PrettyText.test.tsx
+index 4fd6ffe06..e2e8de509 100644
+--- a/js/app/src/components/utility/__tests__/PrettyText.test.tsx
++++ b/js/app/src/components/utility/__tests__/PrettyText.test.tsx
+@@ -1,6 +1,7 @@
++import { css } from "@emotion/react";
+ import { act } from "react";
+ import { createRoot, type Root } from "react-dom/client";
+-import { afterEach, beforeEach, describe, expect, it } from "vitest";
++import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+ 
+ import { installTestMatchMedia } from "@phoenix/__tests__/installTestMatchMedia";
+ import { ThemeProvider } from "@phoenix/contexts";
+@@ -18,6 +19,7 @@ beforeEach(() => {
+ afterEach(() => {
+   act(() => root.unmount());
+   container.remove();
++  vi.restoreAllMocks();
+ });
+ 
+ async function renderText({
+@@ -48,22 +50,21 @@ describe("PrettyText compact presentation", () => {
+     '"quoted string"',
+     '{"only":"value"}',
+     '[1,"two",{}]',
+-    '{"encoded":"{\\"nested\\":true}"}',
+-  ])(
+-    "preserves all JSON values rather than collapsing data: %s",
+-    async (text) => {
+-      await renderText({ text });
+-      expect(container.querySelector(".pretty-text")?.textContent).toBe(
+-        JSON.stringify(JSON.parse(text), null, 2)
+-      );
+-      expect(
+-        container.querySelector(".pretty-text")?.classList.contains("font-mono")
+-      ).toBe(true);
+-      expect(
+-        container.querySelector(".cm-editor, [contenteditable], [title]")
+-      ).toBeNull();
+-    }
+-  );
++    JSON.stringify({ encoded: "{not valid JSON}" }),
++  ])("preserves values without decodable containers: %s", async (text) => {
++    await renderText({ text });
++    expect(container.querySelector(".pretty-text")?.textContent).toBe(
++      JSON.stringify(JSON.parse(text), null, 2)
++    );
++    expect(
++      container.querySelector(".pretty-text")?.classList.contains("font-mono")
++    ).toBe(true);
++    expect(
++      container.querySelector(
++        ".cm-editor, [contenteditable], [title], .pretty-text__preview-label"
++      )
++    ).toBeNull();
++  });
+   it.each([
+     "",
+     "A grounded explanation.\nThe source supports the answer.",
+@@ -101,4 +102,79 @@ describe("PrettyText compact presentation", () => {
+       "Existing code text"
+     );
+   });
++  it("clearly labels valid nested display decoding without mutating source strings", async () => {
++    const source = {
++      payload: JSON.stringify({
++        items: [JSON.stringify({ reason: "grounded", score: 1 })],
++      }),
++    };
++    const text = JSON.stringify(source);
++    await renderText({ text });
++    expect(container.querySelector(".pretty-text")?.textContent).toBe(
++      JSON.stringify(
++        { payload: { items: [{ reason: "grounded", score: 1 }] } },
++        null,
++        2
++      )
++    );
++    expect(
++      container.querySelector(".pretty-text__preview-label")?.textContent
++    ).toBe("JSON preview · encoded strings decoded");
++    expect(container.querySelector("[tabindex], button, [title]")).toBeNull();
++    expect(typeof source.payload).toBe("string");
++    expect(JSON.stringify(source)).toBe(text);
++  });
++  it("keeps hostile HTML inert even when it is inside decoded strings", async () => {
++    const payload = {
++      html: '<img src=x onerror="alert(1)"><script>alert(1)</script>',
++    };
++    await renderText({
++      text: JSON.stringify({ payload: JSON.stringify(payload) }),
++    });
++    expect(container.querySelector("img, script")).toBeNull();
++    expect(container.querySelector(".pretty-text")?.textContent).toBe(
++      JSON.stringify({ payload }, null, 2)
++    );
++  });
++  it("shows the full formatted source without a label on budget fallback", async () => {
++    const source = {
++      early: "{}",
++      values: Array.from({ length: 101 }, () => "{broken"),
++    };
++    await renderText({ text: JSON.stringify(source) });
++    expect(container.querySelector(".pretty-text")?.textContent).toBe(
++      JSON.stringify(source, null, 2)
++    );
++    expect(container.querySelector(".pretty-text__preview-label")).toBeNull();
++  });
++  it("does not repeat parsing on unrelated renders and scopes decoding to compact", async () => {
++    const text = JSON.stringify({ payload: JSON.stringify({ score: 1 }) });
++    const parse = vi.spyOn(JSON, "parse");
++    await renderText({ text });
++    const initialParses = parse.mock.calls.length;
++    await act(async () =>
++      root.render(
++        <ThemeProvider themeMode="light">
++          <PrettyText
++            variant="compact"
++            preCSS={css`
++              margin: 0;
++            `}
++          >
++            {text}
++          </PrettyText>
++        </ThemeProvider>
++      )
++    );
++    expect(parse.mock.calls.length).toBe(initialParses);
++    await renderText({ text, variant: "code" });
++    expect(container.querySelector(".pretty-text__preview-label")).toBeNull();
++    expect(container.querySelector(".cm-content")?.textContent).toContain(
++      '\\"score\\"'
++    );
++    await renderText({ text });
++    expect(
++      container.querySelector(".pretty-text__preview-label")
++    ).not.toBeNull();
++  });
+ });
+diff --git a/js/app/src/pages/playground/PlaygroundExperimentRunDetailsDialog.tsx b/js/app/src/pages/playground/PlaygroundExperimentRunDetailsDialog.tsx
+index 26058fdfd..ebf77b239 100644
+--- a/js/app/src/pages/playground/PlaygroundExperimentRunDetailsDialog.tsx
++++ b/js/app/src/pages/playground/PlaygroundExperimentRunDetailsDialog.tsx
+@@ -85,7 +85,11 @@ export function PlaygroundExperimentRunDetailsDialog({
+           </Flex>
+           <DialogTitleExtra>
+             {run.error ? (
+-              <CopyToClipboardButton text={run.error} aria-label="Copy error" />
++              <CopyToClipboardButton
++                text={run.error}
++                aria-label="Copy original error"
++                tooltipText="Copy original error"
++              />
+             ) : null}
+             <DialogCloseButton aria-label="Close experiment run" />
+           </DialogTitleExtra>
+diff --git a/js/app/src/pages/playground/__tests__/PlaygroundExperimentRunDetailsDialog.test.tsx b/js/app/src/pages/playground/__tests__/PlaygroundExperimentRunDetailsDialog.test.tsx
+index 75f2167dc..f19007a0e 100644
+--- a/js/app/src/pages/playground/__tests__/PlaygroundExperimentRunDetailsDialog.test.tsx
++++ b/js/app/src/pages/playground/__tests__/PlaygroundExperimentRunDetailsDialog.test.tsx
+@@ -97,27 +97,44 @@ describe("PlaygroundExperimentRunDetailsDialog errors", () => {
+     expect(
+       container.querySelector('[aria-label="Close experiment run"]')
+     ).not.toBeNull();
+-    expect(header?.querySelector('[aria-label="Copy error"]')).not.toBeNull();
++    expect(
++      header?.querySelector('[aria-label="Copy original error"]')
++    ).not.toBeNull();
+   });
+   it("does not retain an earlier run's error when rendering normal output", async () => {
+     await renderError("Request failed");
+     await renderError(null);
+     expect(container.querySelector('[role="alert"]')).toBeNull();
+-    expect(container.querySelector('[aria-label="Copy error"]')).toBeNull();
++    expect(
++      container.querySelector('[aria-label="Copy original error"]')
++    ).toBeNull();
+     expect(
+       container.querySelector('[aria-label="Copy output"]')?.closest("header")
+     ).not.toBeNull();
+     expect(container.textContent).toContain('"result": "success"');
+   });
+   it("copies the original error once from the fixed header", async () => {
+-    const error = '{"code":429,"nested":"{\\\"keep\\\":true}"}';
++    const decoded = {
++      reasons: ["rate limit", "retry later"],
++      retry: { seconds: 30 },
++    };
++    const error = JSON.stringify({
++      code: 429,
++      details: JSON.stringify(decoded),
++    });
+     await renderError(error);
+     const buttons = container.querySelectorAll<HTMLButtonElement>(
+-      '[aria-label="Copy error"]'
++      '[aria-label="Copy original error"]'
+     );
+     expect(buttons).toHaveLength(1);
+     await act(async () => buttons[0].click());
+     expect(copy).toHaveBeenCalledWith(error);
++    expect(
++      container.querySelector('[role="alert"] .pretty-text')?.textContent
++    ).toBe(JSON.stringify({ code: 429, details: decoded }, null, 2));
++    expect(
++      container.querySelector('[role="alert"] .pretty-text__preview-label')
++    ).not.toBeNull();
+   });
+   it("copies normal output from the output card header", async () => {
+     await renderError(null);
+diff --git a/js/app/src/pages/trace/__tests__/DocumentAnnotationItem.test.tsx b/js/app/src/pages/trace/__tests__/DocumentAnnotationItem.test.tsx
+index e6c2041b5..8e9f1cd97 100644
+--- a/js/app/src/pages/trace/__tests__/DocumentAnnotationItem.test.tsx
++++ b/js/app/src/pages/trace/__tests__/DocumentAnnotationItem.test.tsx
+@@ -89,4 +89,17 @@ describe("DocumentAnnotationItem explanations", () => {
+       expect(container.querySelector(".pretty-text")).toBeNull();
+     }
+   );
++  it("uses the shared labeled preview for JSON-encoded explanation values", async () => {
++    const decoded = { reasons: ["grounded", "complete"], score: 1 };
++    await renderExplanation(
++      JSON.stringify({ payload: JSON.stringify(decoded) })
++    );
++    expect(container.querySelector(".pretty-text")?.textContent).toBe(
++      JSON.stringify({ payload: decoded }, null, 2)
++    );
++    expect(
++      container.querySelector(".pretty-text__preview-label")?.textContent
++    ).toBe("JSON preview · encoded strings decoded");
++    expect(container.querySelector("[tabindex], button")).toBeNull();
++  });
+ });
+diff --git a/js/app/src/pages/trace/__tests__/DocumentItem.test.tsx b/js/app/src/pages/trace/__tests__/DocumentItem.test.tsx
+new file mode 100644
+index 000000000..684bda661
+--- /dev/null
++++ b/js/app/src/pages/trace/__tests__/DocumentItem.test.tsx
+@@ -0,0 +1,75 @@
++import { act } from "react";
++import { createRoot, type Root } from "react-dom/client";
++import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
++
++import { installTestMatchMedia } from "@phoenix/__tests__/installTestMatchMedia";
++import { MarkdownDisplayProvider } from "@phoenix/components/markdown";
++import { PreferencesProvider, ThemeProvider } from "@phoenix/contexts";
++
++import { DocumentItem } from "../DocumentItem";
++
++const copy = vi.hoisted(() => vi.fn());
++vi.mock("copy-to-clipboard", () => ({ default: copy }));
++installTestMatchMedia();
++let container: HTMLDivElement;
++let root: Root;
++beforeEach(() => {
++  copy.mockClear();
++  container = document.createElement("div");
++  document.body.appendChild(container);
++  root = createRoot(container);
++});
++afterEach(() => {
++  act(() => root.unmount());
++  container.remove();
++});
++
++describe("DocumentItem source copy", () => {
++  it("copies original document content, never an expanded annotation preview", async () => {
++    const content = JSON.stringify({
++      payload: JSON.stringify({ reasons: ["supported", "complete"], score: 1 }),
++    });
++    await act(async () =>
++      root.render(
++        <ThemeProvider themeMode="light">
++          <PreferencesProvider>
++            <MarkdownDisplayProvider>
++              <DocumentItem document={{ id: "doc-1", content }} />
++            </MarkdownDisplayProvider>
++          </PreferencesProvider>
++        </ThemeProvider>
++      )
++    );
++    const button = container.querySelector<HTMLButtonElement>(
++      "header button.copy-button"
++    );
++    expect(button).not.toBeNull();
++    await act(async () => button?.click());
++    expect(copy).toHaveBeenCalledWith(content);
++    expect(typeof JSON.parse(copy.mock.calls[0][0]).payload).toBe("string");
++  });
++  it("keeps the full source-document fallback for documents with no content", async () => {
++    const document = {
++      id: "doc-1",
++      metadata: JSON.stringify({
++        payload: JSON.stringify({ score: 1, values: ["kept"] }),
++      }),
++    };
++    await act(async () =>
++      root.render(
++        <ThemeProvider themeMode="light">
++          <PreferencesProvider>
++            <MarkdownDisplayProvider>
++              <DocumentItem document={document} />
++            </MarkdownDisplayProvider>
++          </PreferencesProvider>
++        </ThemeProvider>
++      )
++    );
++    const button = container.querySelector<HTMLButtonElement>(
++      "header button.copy-button"
++    );
++    await act(async () => button?.click());
++    expect(copy).toHaveBeenCalledWith(JSON.stringify(document, null, 2));
++  });
++});
+diff --git a/js/app/src/utils/__tests__/getJSONDisplayPreview.test.ts b/js/app/src/utils/__tests__/getJSONDisplayPreview.test.ts
+new file mode 100644
+index 000000000..7aecf82b1
+--- /dev/null
++++ b/js/app/src/utils/__tests__/getJSONDisplayPreview.test.ts
+@@ -0,0 +1,212 @@
++import { afterEach, describe, expect, it, vi } from "vitest";
++
++import { getJSONDisplayPreview } from "../getJSONDisplayPreview";
++
++const format = (value: unknown) => JSON.stringify(value, null, 2);
++afterEach(() => vi.restoreAllMocks());
++
++describe("getJSONDisplayPreview", () => {
++  it("recursively previews encoded objects and arrays inside arrays", () => {
++    const source = {
++      payload: JSON.stringify({
++        items: [JSON.stringify({ reason: "grounded", score: 1 })],
++        nested: JSON.stringify([
++          "prose",
++          { more: JSON.stringify({ ok: true }) },
++        ]),
++      }),
++      native: [JSON.stringify([1, { note: "kept" }])],
++    };
++    expect(getJSONDisplayPreview({ text: format(source) })).toEqual({
++      text: format({
++        payload: {
++          items: [{ reason: "grounded", score: 1 }],
++          nested: ["prose", { more: { ok: true } }],
++        },
++        native: [[1, { note: "kept" }]],
++      }),
++      hasDecodedStrings: true,
++    });
++    expect(typeof source.payload).toBe("string");
++    expect(typeof source.native[0]).toBe("string");
++  });
++
++  it("unwraps several encoding layers only when they lead to a container", () => {
++    let encoded = JSON.stringify({ items: [1, 2], empty: {} });
++    for (let layer = 0; layer < 4; layer++) encoded = JSON.stringify(encoded);
++    expect(
++      getJSONDisplayPreview({ text: format({ payload: encoded }) })
++    ).toEqual({
++      text: format({ payload: { items: [1, 2], empty: {} } }),
++      hasDecodedStrings: true,
++    });
++    expect(getJSONDisplayPreview({ text: format(encoded) })).toEqual({
++      text: format({ items: [1, 2], empty: {} }),
++      hasDecodedStrings: true,
++    });
++  });
++
++  it("handles escaped quotes, backslashes, newlines and hostile HTML as data", () => {
++    const decoded = {
++      quote: 'She said "yes"',
++      path: "C:\\folder\\file",
++      lines: "first\nsecond",
++      html: '<img src=x onerror="alert(1)"><script>alert(1)</script>',
++    };
++    expect(
++      getJSONDisplayPreview({
++        text: format({ payload: JSON.stringify(decoded) }),
++      })
++    ).toEqual({
++      text: format({ payload: decoded }),
++      hasDecodedStrings: true,
++    });
++  });
++
++  it("keeps mixed primitive-looking, malformed and multiply quoted strings exact", () => {
++    const strings = [
++      "",
++      "123",
++      "0",
++      "true",
++      "false",
++      "null",
++      '"literal"',
++      JSON.stringify(JSON.stringify("hello")),
++      '{"bad":',
++      "[1,",
++      '"{bad}"',
++      " ordinary prose ",
++    ];
++    const source = {
++      strings,
++      native: [1, true, null],
++      decoded: JSON.stringify({ values: strings }),
++    };
++    expect(getJSONDisplayPreview({ text: format(source) })).toEqual({
++      text: format({
++        strings,
++        native: [1, true, null],
++        decoded: { values: strings },
++      }),
++      hasDecodedStrings: true,
++    });
++  });
++
++  it.each([
++    {},
++    [],
++    null,
++    0,
++    false,
++    true,
++    "",
++    "123",
++    "true",
++    "null",
++    '"quoted literal"',
++    ["{} not JSON"],
++    { literal: '"hello"' },
++  ])("does not label unchanged values: %j", (value) => {
++    const text = format(value);
++    expect(getJSONDisplayPreview({ text })).toEqual({
++      text,
++      hasDecodedStrings: false,
++    });
++  });
++  it.each(["", "text", '{"broken":', '["unterminated'])(
++    "preserves invalid top-level input: %s",
++    (text) => {
++      expect(getJSONDisplayPreview({ text })).toEqual({
++        text,
++        hasDecodedStrings: false,
++      });
++    }
++  );
++  it("decodes empty containers without replacing them with placeholders", () => {
++    expect(getJSONDisplayPreview({ text: format(["{}", "[]"]) })).toEqual({
++      text: format([{}, []]),
++      hasDecodedStrings: true,
++    });
++  });
++  it("treats prototype keys as ordinary own data, without mutating prototypes", () => {
++    const source = Object.fromEntries([
++      ["__proto__", JSON.stringify({ polluted: true })],
++      ["constructor", JSON.stringify({ prototype: { polluted: true } })],
++      ["prototype", JSON.stringify(["safe"])],
++    ]);
++    const original = format(source);
++    const result = getJSONDisplayPreview({ text: original });
++    const preview = JSON.parse(result.text);
++    expect(Object.hasOwn(preview, "__proto__")).toBe(true);
++    expect(preview.__proto__).toEqual({ polluted: true });
++    expect(preview.constructor).toEqual({ prototype: { polluted: true } });
++    expect(Object.getPrototypeOf(source)).toBe(Object.prototype);
++    expect(Object.hasOwn(Object.prototype, "polluted")).toBe(false);
++    expect(format(source)).toBe(original);
++  });
++
++  it("falls back as a whole when container depth exceeds the bound", () => {
++    const text = format({ early: "{}", deep: { next: { payload: "[]" } } });
++    expect(getJSONDisplayPreview({ text, maxDepth: 2 })).toEqual({
++      text,
++      hasDecodedStrings: false,
++    });
++  });
++  it("counts repeated encoding layers toward the same depth bound", () => {
++    const encoded = JSON.stringify(
++      JSON.stringify(JSON.stringify({ ok: true }))
++    );
++    const text = format({ early: "{}", encoded });
++    expect(getJSONDisplayPreview({ text, maxDepth: 2 })).toEqual({
++      text,
++      hasDecodedStrings: false,
++    });
++  });
++  it("limits total visited nodes across branches, not just each container", () => {
++    const text = format({ early: "{}", left: [1, 2, 3], right: [4, 5, 6] });
++    expect(getJSONDisplayPreview({ text, maxNodes: 8 })).toEqual({
++      text,
++      hasDecodedStrings: false,
++    });
++  });
++  it("limits all parse attempts including malformed candidates", () => {
++    const text = format([
++      "{}",
++      ...Array.from({ length: 100 }, () => "{broken"),
++    ]);
++    const parse = vi.spyOn(JSON, "parse");
++    expect(getJSONDisplayPreview({ text, maxParseAttempts: 3 })).toEqual({
++      text,
++      hasDecodedStrings: false,
++    });
++    expect(parse).toHaveBeenCalledTimes(3);
++  });
++  it("skips an oversized source without attempting to parse it", () => {
++    const text = format({ payload: "{}" });
++    const parse = vi.spyOn(JSON, "parse");
++    expect(
++      getJSONDisplayPreview({ text, maxCharacters: text.length - 1 })
++    ).toEqual({ text, hasDecodedStrings: false });
++    expect(parse).not.toHaveBeenCalled();
++  });
++  it("limits cumulative parse characters rather than each string alone", () => {
++    const text = format(["{}", "[]"]);
++    expect(
++      getJSONDisplayPreview({ text, maxCharacters: text.length + 2 })
++    ).toEqual({ text, hasDecodedStrings: false });
++  });
++  it("discards an oversized formatted preview without truncating the source", () => {
++    const text = JSON.stringify({
++      payload: JSON.stringify({ deep: { values: [1, 2, 3, 4] } }),
++    });
++    const expanded = getJSONDisplayPreview({ text });
++    expect(expanded.hasDecodedStrings).toBe(true);
++    const parseSize = text.length + JSON.parse(text).payload.length;
++    expect(expanded.text.length).toBeGreaterThan(parseSize);
++    expect(getJSONDisplayPreview({ text, maxCharacters: parseSize })).toEqual({
++      text,
++      hasDecodedStrings: false,
++    });
++  });
++});
+diff --git a/js/app/src/utils/getJSONDisplayPreview.ts b/js/app/src/utils/getJSONDisplayPreview.ts
+new file mode 100644
+index 000000000..e68f725a8
+--- /dev/null
++++ b/js/app/src/utils/getJSONDisplayPreview.ts
+@@ -0,0 +1,119 @@
++import { safelyParseJSON } from "./jsonUtils";
++
++const DEFAULT_MAX_DEPTH = 20;
++const DEFAULT_MAX_NODES = 2_000;
++const DEFAULT_MAX_PARSE_ATTEMPTS = 100;
++const DEFAULT_MAX_CHARACTERS = 100_000;
++
++/**
++ * Builds display text, never replacement data or clipboard content. Only strings
++ * that ultimately decode to an object/array are expanded, including multiple
++ * encoding layers. Scalar-looking strings and quoted prose stay strings.
++ *
++ * Work is bounded across the whole preview, not per branch. If any limit is
++ * reached, discard the entire preview and return the full supplied text.
++ * @param params.text - Source JSON text (normally already formatted by usePrettyText).
++ * @param params.maxDepth - Combined container nesting and decoding-layer limit.
++ * @param params.maxNodes - Maximum total visited values.
++ * @param params.maxParseAttempts - Maximum total parse attempts, including the root.
++ * @param params.maxCharacters - Maximum cumulative parsed characters and output size.
++ */
++export function getJSONDisplayPreview({
++  text,
++  maxDepth = DEFAULT_MAX_DEPTH,
++  maxNodes = DEFAULT_MAX_NODES,
++  maxParseAttempts = DEFAULT_MAX_PARSE_ATTEMPTS,
++  maxCharacters = DEFAULT_MAX_CHARACTERS,
++}: {
++  text: string;
++  maxDepth?: number;
++  maxNodes?: number;
++  maxParseAttempts?: number;
++  maxCharacters?: number;
++}): { text: string; hasDecodedStrings: boolean } {
++  const fallback = { text, hasDecodedStrings: false };
++  let hasReachedLimit = false;
++  let hasDecodedStrings = false;
++  let visitedNodes = 0;
++  let parseAttempts = 0;
++  let parsedCharacters = 0;
++
++  function parseCandidate(candidate: string): unknown {
++    parseAttempts += 1;
++    parsedCharacters += candidate.length;
++    if (parseAttempts > maxParseAttempts || parsedCharacters > maxCharacters) {
++      hasReachedLimit = true;
++      return undefined;
++    }
++    const result = safelyParseJSON(candidate);
++    return result.parseError ? undefined : result.json;
++  }
++
++  function visit({ value, depth }: { value: unknown; depth: number }): unknown {
++    if (hasReachedLimit) return value;
++    visitedNodes += 1;
++    if (depth > maxDepth || visitedNodes > maxNodes) {
++      hasReachedLimit = true;
++      return value;
++    }
++    if (typeof value === "string") {
++      let candidate: unknown = value;
++      let decodingDepth = depth;
++      while (typeof candidate === "string") {
++        const firstCharacter = candidate.trimStart()[0];
++        if (
++          firstCharacter !== "{" &&
++          firstCharacter !== "[" &&
++          firstCharacter !== '"'
++        ) {
++          return value;
++        }
++        decodingDepth += 1;
++        if (decodingDepth > maxDepth) {
++          hasReachedLimit = true;
++          return value;
++        }
++        candidate = parseCandidate(candidate);
++        if (hasReachedLimit) return value;
++        if (typeof candidate === "object" && candidate !== null) {
++          hasDecodedStrings = true;
++          return visit({ value: candidate, depth: decodingDepth });
++        }
++      }
++      // Do not expose intermediate unquoting when it ended in a scalar/error.
++      return value;
++    }
++    if (Array.isArray(value)) {
++      if (value.length > maxNodes - visitedNodes) {
++        hasReachedLimit = true;
++        return value;
++      }
++      return value.map((item) => visit({ value: item, depth: depth + 1 }));
++    }
++    if (typeof value === "object" && value !== null) {
++      const entries = Object.entries(value);
++      if (entries.length > maxNodes - visitedNodes) {
++        hasReachedLimit = true;
++        return value;
++      }
++      // fromEntries creates own data properties, including __proto__; no
++      // assignment into the source or an object's prototype is performed.
++      return Object.fromEntries(
++        entries.map(([key, item]) => [
++          key,
++          visit({ value: item, depth: depth + 1 }),
++        ])
++      );
++    }
++    return value;
++  }
++
++  const value = parseCandidate(text);
++  if (value === undefined || hasReachedLimit) return fallback;
++  const preview = visit({ value, depth: 0 });
++  if (hasReachedLimit || !hasDecodedStrings) return fallback;
++  const previewText = JSON.stringify(preview, null, 2);
++  return previewText.length > maxCharacters
++    ? fallback
++    : { text: previewText, hasDecodedStrings: true };
++}

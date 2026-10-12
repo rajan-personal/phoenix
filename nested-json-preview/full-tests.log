@@ -1,0 +1,19 @@
+[0;36mRunning frontend tests...[0m 
+$ vitest run
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vite.config.mts:38:19). Use `import.meta.dirname` instead
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+ RUN  v5.0.2 /home/user/phoenix/js/app/src
+
+Not implemented: navigation to another Document
+
+ Test Files  267 passed (267)
+      Tests  2657 passed | 12 skipped (2669)
+   Start at  10:40:26
+   Duration  129.92s (import 42%, environment 37%, transform 15%, tests 5%, setup 1%)
+
+Environment  jsdom was created 267 times · 132.45s total, 37% of tracked time
+             create it once per worker with pool: 'vmThreads' (keeps per-file isolation) or isolate: false (shares it across files)
+             learn more: https://vitest.dev/guide/improving-performance#test-environments
+

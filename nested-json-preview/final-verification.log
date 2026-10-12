@@ -1,0 +1,26 @@
+{
+  "before_sha": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+  "after_sha": "69d3486d316027d1d5028ee54f2c62d44adcaee7",
+  "source_clean": true,
+  "baseline_clean": true,
+  "reviewed_sources_unchanged_by_commit": true,
+  "fixture_tables_identical": true,
+  "matched_primary_screenshots": 52,
+  "supplemental_wheel_screenshots": 4,
+  "dimensions": [
+    1440,
+    1000
+  ],
+  "source_paths": [
+    "js/app/src/components/annotation/__tests__/AnnotationDetailsContent.test.tsx",
+    "js/app/src/components/table/__tests__/PrettyTextCell.test.tsx",
+    "js/app/src/components/utility/PrettyText.tsx",
+    "js/app/src/components/utility/__tests__/PrettyText.test.tsx",
+    "js/app/src/pages/playground/PlaygroundExperimentRunDetailsDialog.tsx",
+    "js/app/src/pages/playground/__tests__/PlaygroundExperimentRunDetailsDialog.test.tsx",
+    "js/app/src/pages/trace/__tests__/DocumentAnnotationItem.test.tsx",
+    "js/app/src/pages/trace/__tests__/DocumentItem.test.tsx",
+    "js/app/src/utils/__tests__/getJSONDisplayPreview.test.ts",
+    "js/app/src/utils/getJSONDisplayPreview.ts"
+  ]
+}
