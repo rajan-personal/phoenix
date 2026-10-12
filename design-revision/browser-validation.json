@@ -1,0 +1,534 @@
+[
+  {
+    "theme": "light",
+    "visibleJSON": {
+      "cell": {
+        "left": 718.40625,
+        "right": 987.40625,
+        "top": 416.703125,
+        "bottom": 733.703125
+      },
+      "pinnedAction": {
+        "left": 1363,
+        "right": 1423
+      },
+      "viewport": {
+        "left": 702.40625,
+        "right": 1423
+      },
+      "textRects": [
+        {
+          "left": 734.40625,
+          "right": 742.8125,
+          "top": 425.703125,
+          "bottom": 443.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 751.21875,
+          "top": 445.703125,
+          "bottom": 463.703125
+        },
+        {
+          "left": 751.21875,
+          "right": 936.03125,
+          "top": 445.703125,
+          "bottom": 463.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 751.21875,
+          "top": 465.703125,
+          "bottom": 483.703125
+        },
+        {
+          "left": 751.21875,
+          "right": 910.828125,
+          "top": 465.703125,
+          "bottom": 483.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 751.21875,
+          "top": 485.703125,
+          "bottom": 503.703125
+        },
+        {
+          "left": 751.21875,
+          "right": 860.421875,
+          "top": 485.703125,
+          "bottom": 503.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 768.015625,
+          "top": 505.703125,
+          "bottom": 523.703125
+        },
+        {
+          "left": 768.015625,
+          "right": 910.828125,
+          "top": 505.703125,
+          "bottom": 523.703125
+        },
+        {
+          "left": 910.828125,
+          "right": 919.234375,
+          "top": 505.703125,
+          "bottom": 523.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 818.40625,
+          "top": 525.703125,
+          "bottom": 543.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 768.015625,
+          "top": 545.703125,
+          "bottom": 563.703125
+        },
+        {
+          "left": 768.015625,
+          "right": 852.015625,
+          "top": 545.703125,
+          "bottom": 563.703125
+        },
+        {
+          "left": 852.015625,
+          "right": 860.421875,
+          "top": 545.703125,
+          "bottom": 563.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 852.015625,
+          "top": 565.703125,
+          "bottom": 583.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 751.21875,
+          "top": 585.703125,
+          "bottom": 603.703125
+        },
+        {
+          "left": 751.21875,
+          "right": 768.03125,
+          "top": 585.703125,
+          "bottom": 603.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 751.21875,
+          "top": 605.703125,
+          "bottom": 623.703125
+        },
+        {
+          "left": 751.21875,
+          "right": 843.625,
+          "top": 605.703125,
+          "bottom": 623.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 768.015625,
+          "top": 625.703125,
+          "bottom": 643.703125
+        },
+        {
+          "left": 768.015625,
+          "right": 860.421875,
+          "top": 625.703125,
+          "bottom": 643.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 768.015625,
+          "top": 645.703125,
+          "bottom": 663.703125
+        },
+        {
+          "left": 768.015625,
+          "right": 868.828125,
+          "top": 645.703125,
+          "bottom": 663.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 961.21875,
+          "top": 665.703125,
+          "bottom": 683.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 751.21875,
+          "top": 685.703125,
+          "bottom": 703.703125
+        },
+        {
+          "left": 751.21875,
+          "right": 759.625,
+          "top": 685.703125,
+          "bottom": 703.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 742.8125,
+          "top": 705.703125,
+          "bottom": 723.703125
+        }
+      ]
+    }
+  },
+  {
+    "theme": "light",
+    "docValues": [
+      {
+        "text": "{\n  \"verdict\": \"relevant\",\n  \"confidence\": 0.98,\n  \"evidence\": [\n    \"Matches the user question\",\n    \"Source is authoritative\"\n  ],\n  \"nested\": {\n    \"score\": 1,\n    \"encoded\": \"{\\\"keep\\\":\\\"as a string\\\"}\"\n  }\n}",
+        "font": "\"Geist Mono\", monospace",
+        "lineHeight": "20px",
+        "width": 621,
+        "scrollWidth": 621,
+        "height": 240,
+        "scrollHeight": 240,
+        "overflow": "visible"
+      },
+      {
+        "text": "{\n  \"reason\": \"long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_\",\n  \"items\": [\n    {\n      \"index\": 0,\n      \"evidence\": \"Evidence 0\"\n    },\n    {\n      \"index\": 1,\n      \"evidence\": \"Evidence 1\"\n    },\n    {\n      \"index\": 2,\n      \"evidence\": \"Evidence 2\"\n    },\n    {\n      \"index\": 3,\n      \"evidence\": \"Evidence 3\"\n    },\n    {\n      \"index\": 4,\n      \"evidence\": \"Evidence 4\"\n    },\n    {\n      \"index\": 5,\n      \"evidence\": \"Evidence 5\"\n    },\n    {\n      \"index\": 6,\n      \"evidence\": \"Evidence 6\"\n    },\n    {\n      \"index\": 7,\n      \"evidence\": \"Evidence 7\"\n    },\n    {\n      \"index\": 8,\n      \"evidence\": \"Evidence 8\"\n    },\n    {\n      \"index\": 9,\n      \"evidence\": \"Evidence 9\"\n    },\n    {\n      \"index\": 10,\n      \"evidence\": \"Evidence 10\"\n    },\n    {\n      \"index\": 11,\n      \"evidence\": \"Evidence 11\"\n    },\n    {\n      \"index\": 12,\n      \"evidence\": \"Evidence 12\"\n    },\n    {\n      \"index\": 13,\n      \"evidence\": \"Evidence 13\"\n    },\n    {\n      \"index\": 14,\n      \"evidence\": \"Evidence 14\"\n    },\n    {\n      \"index\": 15,\n      \"evidence\": \"Evidence 15\"\n    },\n    {\n      \"index\": 16,\n      \"evidence\": \"Evidence 16\"\n    },\n    {\n      \"index\": 17,\n      \"evidence\": \"Evidence 17\"\n    },\n    {\n      \"index\": 18,\n      \"evidence\": \"Evidence 18\"\n    },\n    {\n      \"index\": 19,\n      \"evidence\": \"Evidence 19\"\n    },\n    {\n      \"index\": 20,\n      \"evidence\": \"Evidence 20\"\n    },\n    {\n      \"index\": 21,\n      \"evidence\": \"Evidence 21\"\n    },\n    {\n      \"index\": 22,\n      \"evidence\": \"Evidence 22\"\n    },\n    {\n      \"index\": 23,\n      \"evidence\": \"Evidence 23\"\n    },\n    {\n      \"index\": 24,\n      \"evidence\": \"Evidence 24\"\n    }\n  ],\n  \"end\": \"END_OF_JSON\"\n}",
+        "font": "\"Geist Mono\", monospace",
+        "lineHeight": "20px",
+        "width": 621,
+        "scrollWidth": 621,
+        "height": 2780,
+        "scrollHeight": 2780,
+        "overflow": "visible"
+      },
+      {
+        "text": "The answer is grounded in the retrieved document.\nSecond line: the cited source supports the conclusion.",
+        "font": "Geist, sans-serif",
+        "lineHeight": "20px",
+        "width": 621,
+        "scrollWidth": 621,
+        "height": 40,
+        "scrollHeight": 40,
+        "overflow": "visible"
+      },
+      {
+        "text": "{\"verdict\": \"incomplete\", \"reason\":",
+        "font": "Geist, sans-serif",
+        "lineHeight": "20px",
+        "width": 621,
+        "scrollWidth": 621,
+        "height": 20,
+        "scrollHeight": 20,
+        "overflow": "visible"
+      },
+      {
+        "text": "Long unbroken evidence: evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\n",
+        "font": "Geist, sans-serif",
+        "lineHeight": "20px",
+        "width": 621,
+        "scrollWidth": 621,
+        "height": 820,
+        "scrollHeight": 820,
+        "overflow": "visible"
+      }
+    ],
+    "cellMetrics": {
+      "text": "{\n  \"verdict\": \"relevant\",\n  \"confidence\": 0.98,\n  \"evidence\": [\n    \"Matches the user question\",\n    \"Source is authoritative\"\n  ],\n  \"nested\": {\n    \"score\": 1,\n    \"encoded\": \"{\\\"keep\\\":\\\"as a string\\\"}\"\n  }\n}",
+      "width": 237,
+      "scrollWidth": 237,
+      "height": 300,
+      "scrollHeight": 300,
+      "overflow": "visible"
+    },
+    "collapsed": [
+      47,
+      47,
+      47,
+      47,
+      46
+    ],
+    "recollapsed": [
+      47,
+      47,
+      47,
+      47,
+      46
+    ],
+    "colors": {
+      "actual": "lch(45 85.1597 37.9079)",
+      "alert": "lch(45 85.1597 37.9079)",
+      "font": "Geist, sans-serif"
+    },
+    "errors": []
+  },
+  {
+    "theme": "dark",
+    "visibleJSON": {
+      "cell": {
+        "left": 718.40625,
+        "right": 987.40625,
+        "top": 416.703125,
+        "bottom": 733.703125
+      },
+      "pinnedAction": {
+        "left": 1363,
+        "right": 1423
+      },
+      "viewport": {
+        "left": 702.40625,
+        "right": 1423
+      },
+      "textRects": [
+        {
+          "left": 734.40625,
+          "right": 742.8125,
+          "top": 425.703125,
+          "bottom": 443.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 751.21875,
+          "top": 445.703125,
+          "bottom": 463.703125
+        },
+        {
+          "left": 751.21875,
+          "right": 936.03125,
+          "top": 445.703125,
+          "bottom": 463.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 751.21875,
+          "top": 465.703125,
+          "bottom": 483.703125
+        },
+        {
+          "left": 751.21875,
+          "right": 910.828125,
+          "top": 465.703125,
+          "bottom": 483.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 751.21875,
+          "top": 485.703125,
+          "bottom": 503.703125
+        },
+        {
+          "left": 751.21875,
+          "right": 860.421875,
+          "top": 485.703125,
+          "bottom": 503.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 768.015625,
+          "top": 505.703125,
+          "bottom": 523.703125
+        },
+        {
+          "left": 768.015625,
+          "right": 910.828125,
+          "top": 505.703125,
+          "bottom": 523.703125
+        },
+        {
+          "left": 910.828125,
+          "right": 919.234375,
+          "top": 505.703125,
+          "bottom": 523.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 818.40625,
+          "top": 525.703125,
+          "bottom": 543.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 768.015625,
+          "top": 545.703125,
+          "bottom": 563.703125
+        },
+        {
+          "left": 768.015625,
+          "right": 852.015625,
+          "top": 545.703125,
+          "bottom": 563.703125
+        },
+        {
+          "left": 852.015625,
+          "right": 860.421875,
+          "top": 545.703125,
+          "bottom": 563.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 852.015625,
+          "top": 565.703125,
+          "bottom": 583.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 751.21875,
+          "top": 585.703125,
+          "bottom": 603.703125
+        },
+        {
+          "left": 751.21875,
+          "right": 768.03125,
+          "top": 585.703125,
+          "bottom": 603.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 751.21875,
+          "top": 605.703125,
+          "bottom": 623.703125
+        },
+        {
+          "left": 751.21875,
+          "right": 843.625,
+          "top": 605.703125,
+          "bottom": 623.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 768.015625,
+          "top": 625.703125,
+          "bottom": 643.703125
+        },
+        {
+          "left": 768.015625,
+          "right": 860.421875,
+          "top": 625.703125,
+          "bottom": 643.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 768.015625,
+          "top": 645.703125,
+          "bottom": 663.703125
+        },
+        {
+          "left": 768.015625,
+          "right": 868.828125,
+          "top": 645.703125,
+          "bottom": 663.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 961.21875,
+          "top": 665.703125,
+          "bottom": 683.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 751.21875,
+          "top": 685.703125,
+          "bottom": 703.703125
+        },
+        {
+          "left": 751.21875,
+          "right": 759.625,
+          "top": 685.703125,
+          "bottom": 703.703125
+        },
+        {
+          "left": 734.40625,
+          "right": 742.8125,
+          "top": 705.703125,
+          "bottom": 723.703125
+        }
+      ]
+    }
+  },
+  {
+    "theme": "dark",
+    "docValues": [
+      {
+        "text": "{\n  \"verdict\": \"relevant\",\n  \"confidence\": 0.98,\n  \"evidence\": [\n    \"Matches the user question\",\n    \"Source is authoritative\"\n  ],\n  \"nested\": {\n    \"score\": 1,\n    \"encoded\": \"{\\\"keep\\\":\\\"as a string\\\"}\"\n  }\n}",
+        "font": "\"Geist Mono\", monospace",
+        "lineHeight": "20px",
+        "width": 621,
+        "scrollWidth": 621,
+        "height": 240,
+        "scrollHeight": 240,
+        "overflow": "visible"
+      },
+      {
+        "text": "{\n  \"reason\": \"long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_long_json_value_\",\n  \"items\": [\n    {\n      \"index\": 0,\n      \"evidence\": \"Evidence 0\"\n    },\n    {\n      \"index\": 1,\n      \"evidence\": \"Evidence 1\"\n    },\n    {\n      \"index\": 2,\n      \"evidence\": \"Evidence 2\"\n    },\n    {\n      \"index\": 3,\n      \"evidence\": \"Evidence 3\"\n    },\n    {\n      \"index\": 4,\n      \"evidence\": \"Evidence 4\"\n    },\n    {\n      \"index\": 5,\n      \"evidence\": \"Evidence 5\"\n    },\n    {\n      \"index\": 6,\n      \"evidence\": \"Evidence 6\"\n    },\n    {\n      \"index\": 7,\n      \"evidence\": \"Evidence 7\"\n    },\n    {\n      \"index\": 8,\n      \"evidence\": \"Evidence 8\"\n    },\n    {\n      \"index\": 9,\n      \"evidence\": \"Evidence 9\"\n    },\n    {\n      \"index\": 10,\n      \"evidence\": \"Evidence 10\"\n    },\n    {\n      \"index\": 11,\n      \"evidence\": \"Evidence 11\"\n    },\n    {\n      \"index\": 12,\n      \"evidence\": \"Evidence 12\"\n    },\n    {\n      \"index\": 13,\n      \"evidence\": \"Evidence 13\"\n    },\n    {\n      \"index\": 14,\n      \"evidence\": \"Evidence 14\"\n    },\n    {\n      \"index\": 15,\n      \"evidence\": \"Evidence 15\"\n    },\n    {\n      \"index\": 16,\n      \"evidence\": \"Evidence 16\"\n    },\n    {\n      \"index\": 17,\n      \"evidence\": \"Evidence 17\"\n    },\n    {\n      \"index\": 18,\n      \"evidence\": \"Evidence 18\"\n    },\n    {\n      \"index\": 19,\n      \"evidence\": \"Evidence 19\"\n    },\n    {\n      \"index\": 20,\n      \"evidence\": \"Evidence 20\"\n    },\n    {\n      \"index\": 21,\n      \"evidence\": \"Evidence 21\"\n    },\n    {\n      \"index\": 22,\n      \"evidence\": \"Evidence 22\"\n    },\n    {\n      \"index\": 23,\n      \"evidence\": \"Evidence 23\"\n    },\n    {\n      \"index\": 24,\n      \"evidence\": \"Evidence 24\"\n    }\n  ],\n  \"end\": \"END_OF_JSON\"\n}",
+        "font": "\"Geist Mono\", monospace",
+        "lineHeight": "20px",
+        "width": 621,
+        "scrollWidth": 621,
+        "height": 2780,
+        "scrollHeight": 2780,
+        "overflow": "visible"
+      },
+      {
+        "text": "The answer is grounded in the retrieved document.\nSecond line: the cited source supports the conclusion.",
+        "font": "Geist, sans-serif",
+        "lineHeight": "20px",
+        "width": 621,
+        "scrollWidth": 621,
+        "height": 40,
+        "scrollHeight": 40,
+        "overflow": "visible"
+      },
+      {
+        "text": "{\"verdict\": \"incomplete\", \"reason\":",
+        "font": "Geist, sans-serif",
+        "lineHeight": "20px",
+        "width": 621,
+        "scrollWidth": 621,
+        "height": 20,
+        "scrollHeight": 20,
+        "overflow": "visible"
+      },
+      {
+        "text": "Long unbroken evidence: evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\n",
+        "font": "Geist, sans-serif",
+        "lineHeight": "20px",
+        "width": 621,
+        "scrollWidth": 621,
+        "height": 820,
+        "scrollHeight": 820,
+        "overflow": "visible"
+      }
+    ],
+    "cellMetrics": {
+      "text": "{\n  \"verdict\": \"relevant\",\n  \"confidence\": 0.98,\n  \"evidence\": [\n    \"Matches the user question\",\n    \"Source is authoritative\"\n  ],\n  \"nested\": {\n    \"score\": 1,\n    \"encoded\": \"{\\\"keep\\\":\\\"as a string\\\"}\"\n  }\n}",
+      "width": 237,
+      "scrollWidth": 237,
+      "height": 300,
+      "scrollHeight": 300,
+      "overflow": "visible"
+    },
+    "collapsed": [
+      47,
+      47,
+      47,
+      47,
+      46
+    ],
+    "recollapsed": [
+      47,
+      47,
+      47,
+      47,
+      46
+    ],
+    "colors": {
+      "actual": "lch(90 57.8676 37.3521)",
+      "alert": "lch(90 57.8676 37.3521)",
+      "font": "Geist, sans-serif"
+    },
+    "errors": []
+  }
+]

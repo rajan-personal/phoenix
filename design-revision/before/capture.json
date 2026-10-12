@@ -1,0 +1,74 @@
+[
+  {
+    "phase": "before",
+    "theme": "light",
+    "surface": "annotation",
+    "name": "json",
+    "style": {
+      "width": 332,
+      "height": 434,
+      "scrollWidth": 332,
+      "text": "JSON\nlabel\nrelevant\nscore\n0.98\nannotator kind\nLLM\nexplanation\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n⌄\n⌄\n⌄\n{\n  \"verdict\": \"relevant\",\n  \"confidence\": 0.98,\n  \"evidence\": [\n    \"Matches the user question\",\n    \"Source is authoritative\"\n  ],\n  \"nested\": {\n    \"score\": 1,\n    \"encoded\": \"{\\\"keep\\\":\\\"as a string\\\"}\"\n  }\n}"
+    }
+  },
+  {
+    "phase": "before",
+    "theme": "light",
+    "surface": "annotation",
+    "name": "plain",
+    "style": {
+      "width": 332,
+      "height": 216,
+      "scrollWidth": 332,
+      "text": "Plain text\nlabel\nrelevant\nscore\n0.98\nannotator kind\nLLM\nexplanation\nThe answer is grounded in the retrieved document.\nSecond line: the cited source supports the conclusion."
+    }
+  },
+  {
+    "phase": "before",
+    "theme": "light",
+    "surface": "annotation",
+    "name": "long",
+    "style": {
+      "width": 332,
+      "height": 452,
+      "scrollWidth": 332,
+      "text": "Overflow\nlabel\nrelevant\nscore\n0.98\nannotator kind\nLLM\nexplanation\nLong unbroken evidence: evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\n"
+    }
+  },
+  {
+    "phase": "before",
+    "theme": "dark",
+    "surface": "annotation",
+    "name": "json",
+    "style": {
+      "width": 332,
+      "height": 434,
+      "scrollWidth": 332,
+      "text": "JSON\nlabel\nrelevant\nscore\n0.98\nannotator kind\nLLM\nexplanation\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n⌄\n⌄\n⌄\n{\n  \"verdict\": \"relevant\",\n  \"confidence\": 0.98,\n  \"evidence\": [\n    \"Matches the user question\",\n    \"Source is authoritative\"\n  ],\n  \"nested\": {\n    \"score\": 1,\n    \"encoded\": \"{\\\"keep\\\":\\\"as a string\\\"}\"\n  }\n}"
+    }
+  },
+  {
+    "phase": "before",
+    "theme": "dark",
+    "surface": "annotation",
+    "name": "plain",
+    "style": {
+      "width": 332,
+      "height": 216,
+      "scrollWidth": 332,
+      "text": "Plain text\nlabel\nrelevant\nscore\n0.98\nannotator kind\nLLM\nexplanation\nThe answer is grounded in the retrieved document.\nSecond line: the cited source supports the conclusion."
+    }
+  },
+  {
+    "phase": "before",
+    "theme": "dark",
+    "surface": "annotation",
+    "name": "long",
+    "style": {
+      "width": 332,
+      "height": 452,
+      "scrollWidth": 332,
+      "text": "Overflow\nlabel\nrelevant\nscore\n0.98\nannotator kind\nLLM\nexplanation\nLong unbroken evidence: evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_evidence_\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\nAdditional evidence line.\n"
+    }
+  }
+]
