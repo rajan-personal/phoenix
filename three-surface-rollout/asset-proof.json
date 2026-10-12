@@ -1,0 +1,17 @@
+{
+  "node": "v24.21.0",
+  "fresh_build_log": "build.log",
+  "fresh_manifest_sha256": "d6e7f81209bd9aa12cb057ebc733b833c95a8c0b35c0a2009d33cab45059319d",
+  "manifest_identical_to_pre_restore_build": true,
+  "fresh_entry": "assets/index-CKFKk2ab.js",
+  "fresh_entry_sha256": "bba75bc5d8c7b57957a5b3e663ddaa2ef936dedc59b7bf554b54ffea8fed7cd1",
+  "fresh_entry_bytes": 5157482,
+  "historical_evidence_source_sha": "69d3486d316027d1d5028ee54f2c62d44adcaee7",
+  "historical_entry": "/assets/index-CKFKk2ab.js",
+  "historical_entry_sha256": "bba75bc5d8c7b57957a5b3e663ddaa2ef936dedc59b7bf554b54ffea8fed7cd1",
+  "same_entry_filename": true,
+  "entry_bytes_match_historical_evidence": true,
+  "new_browser_capture_performed": false,
+  "fresh_build_source_sha": "0f690f0de444d9398a87abcb085515dc84484a6d",
+  "source_bytes_unchanged_by_commit": true
+}

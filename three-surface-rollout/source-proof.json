@@ -1,0 +1,104 @@
+{
+  "base_sha": "d0dc9e5ff0a33a1962da6aae83e6f56ac72c444f",
+  "head_sha": "0f690f0de444d9398a87abcb085515dc84484a6d",
+  "branch": "fix-10969",
+  "changed_paths": [
+    "js/app/src/pages/playground/PlaygroundExperimentRunDetailsDialog.tsx",
+    "js/app/src/pages/playground/__tests__/PlaygroundExperimentRunDetailsDialog.test.tsx"
+  ],
+  "component": {
+    "path": "js/app/src/pages/playground/PlaygroundExperimentRunDetailsDialog.tsx",
+    "sha256": "9323de9794b7ffe6b783d81f41b954398f44b41c15a2ae73eff1e503bf4d21df",
+    "baseline_blob": "b9ed83d87a4c0c8d11119debf7314f8f1222d7d1",
+    "working_blob": "b9ed83d87a4c0c8d11119debf7314f8f1222d7d1",
+    "byte_identical_to_baseline": true
+  },
+  "dedicated_test": {
+    "path": "js/app/src/pages/playground/__tests__/PlaygroundExperimentRunDetailsDialog.test.tsx",
+    "exists_in_baseline": false,
+    "exists_after_restoration": false
+  },
+  "base_to_working_playground_diff_empty": true,
+  "remaining_rollout_files": {
+    "js/app/src/components/annotation/AnnotationDetailsContent.tsx": {
+      "sha256": "a3f21e0e44f61068e1b2f769135628a09ecaa25660327d8d276a93be4b3180f5",
+      "identical_to_head": true,
+      "identical_to_source_sha": "69d3486d316027d1d5028ee54f2c62d44adcaee7"
+    },
+    "js/app/src/components/annotation/AnnotationTooltip.tsx": {
+      "sha256": "e32961a396b5f1d7d027d3312987c4c16c6ed18edeee45d54369ac9292df74e1",
+      "identical_to_head": true,
+      "identical_to_source_sha": "69d3486d316027d1d5028ee54f2c62d44adcaee7"
+    },
+    "js/app/src/components/annotation/__tests__/AnnotationDetailsContent.test.tsx": {
+      "sha256": "b9ae5d06a3b514f5490521aacdd82414665550d596dd349415cfccf36deaf1af",
+      "identical_to_head": true,
+      "identical_to_source_sha": "69d3486d316027d1d5028ee54f2c62d44adcaee7"
+    },
+    "js/app/src/components/table/TextCell.tsx": {
+      "sha256": "7b49a8cfd41a0e61ea16687b683f5e35cc3af16636eb8e78b70a07990849b846",
+      "identical_to_head": true,
+      "identical_to_source_sha": "69d3486d316027d1d5028ee54f2c62d44adcaee7"
+    },
+    "js/app/src/components/table/__tests__/PrettyTextCell.test.tsx": {
+      "sha256": "b673beeca06b8cb4822addcddec2c53ac961f88636b743657b77db69af3604d3",
+      "identical_to_head": true,
+      "identical_to_source_sha": "69d3486d316027d1d5028ee54f2c62d44adcaee7"
+    },
+    "js/app/src/components/utility/PrettyText.tsx": {
+      "sha256": "d71376050da39fc8d188c857d63610e982eeeb541433e1c71abd338e9e9361ad",
+      "identical_to_head": true,
+      "identical_to_source_sha": "69d3486d316027d1d5028ee54f2c62d44adcaee7"
+    },
+    "js/app/src/components/utility/__tests__/PrettyText.test.tsx": {
+      "sha256": "068e5bbc5bf28f61b489232c9306ed458e11b7ba47989642bdb0266391d535cc",
+      "identical_to_head": true,
+      "identical_to_source_sha": "69d3486d316027d1d5028ee54f2c62d44adcaee7"
+    },
+    "js/app/src/pages/trace/DocumentAnnotationItem.tsx": {
+      "sha256": "273bd5a19da7b4dfdcd8de0158cdda4bc8e95c65e19319345529f992c6a27c85",
+      "identical_to_head": true,
+      "identical_to_source_sha": "69d3486d316027d1d5028ee54f2c62d44adcaee7"
+    },
+    "js/app/src/pages/trace/SpanAnnotationsTable.tsx": {
+      "sha256": "b59d19675c257df63ec3987a56626dd1a70982e3e61155f3efd577b5241d2370",
+      "identical_to_head": true,
+      "identical_to_source_sha": "69d3486d316027d1d5028ee54f2c62d44adcaee7"
+    },
+    "js/app/src/pages/trace/__tests__/DocumentAnnotationItem.test.tsx": {
+      "sha256": "854c818a708198c7ab986847b18b41203aa42d20baaf02e9bfb3d6a6e31f9d99",
+      "identical_to_head": true,
+      "identical_to_source_sha": "69d3486d316027d1d5028ee54f2c62d44adcaee7"
+    },
+    "js/app/src/pages/trace/__tests__/DocumentItem.test.tsx": {
+      "sha256": "7c34b09d30337b71f74de37a0fc921af4ce5d2ac4ad20897dfd238f0a0104a58",
+      "identical_to_head": true,
+      "identical_to_source_sha": "69d3486d316027d1d5028ee54f2c62d44adcaee7"
+    },
+    "js/app/src/pages/trace/__tests__/SpanAnnotationsTable.test.tsx": {
+      "sha256": "3f0d79dd560a56679c965de1233eb34f3080d83975509433c99a647c579f8984",
+      "identical_to_head": true,
+      "identical_to_source_sha": "69d3486d316027d1d5028ee54f2c62d44adcaee7"
+    },
+    "js/app/src/utils/__tests__/getJSONDisplayPreview.test.ts": {
+      "sha256": "dfb01362cf082332b76a607955000af8b921ce3b984b08456a10c02054063bbe",
+      "identical_to_head": true,
+      "identical_to_source_sha": "69d3486d316027d1d5028ee54f2c62d44adcaee7"
+    },
+    "js/app/src/utils/getJSONDisplayPreview.ts": {
+      "sha256": "5479fe1354dfa524eb0004ffb28e74dc10499bf22c6fddfdd7204d5b5b36764b",
+      "identical_to_head": true,
+      "identical_to_source_sha": "69d3486d316027d1d5028ee54f2c62d44adcaee7"
+    }
+  },
+  "staged_diff_empty": true,
+  "review_base_sha": "69d3486d316027d1d5028ee54f2c62d44adcaee7",
+  "parent_sha": "69d3486d316027d1d5028ee54f2c62d44adcaee7",
+  "source_status_clean": true,
+  "one_additive_local_commit": true,
+  "base_to_final_playground_diff_empty": true,
+  "author": "rajan-personal <39906424+rajan-personal@users.noreply.github.com>",
+  "screenshot_capture_source_sha": "69d3486d316027d1d5028ee54f2c62d44adcaee7",
+  "screenshots_recaptured": false,
+  "publication_performed_by_this_agent": false
+}

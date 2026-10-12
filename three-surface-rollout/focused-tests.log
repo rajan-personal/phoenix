@@ -1,0 +1,18 @@
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vite.config.mts:38:19). Use `import.meta.dirname` instead
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+ RUN  v5.0.2 /home/user/phoenix/js/app/src
+
+
+ Test Files  7 passed (7)
+      Tests  88 passed (88)
+   Start at  12:58:43
+   Duration  20.24s (import 47%, transform 39%, environment 10%, tests 4%)
+
+     Import  716 modules were evaluated 3009 times · 25.94s total, 47% of tracked time
+             ~3.09s faster with isolate: false — shared modules are evaluated once per worker instead of once per file
+             learn more: https://vitest.dev/guide/improving-performance#test-isolation
+
+
+EXIT_CODE=0
